@@ -164,6 +164,14 @@
                rootMargin: '0px 0px 229px 0px',
                threshold: 0
           };
+
+          function preloadImage(img) {
+            const src = img.getAttribute('data-src');
+            if (!src) { return; }
+            img.src = src;
+            //_updateMonitoring();
+          }
+
           let observer = new IntersectionObserver(function(entries,self){
                entries.forEach(entry => {
                     if(entry.isIntersecting){
@@ -177,6 +185,7 @@
           imgs.forEach(img => {
                observer.observe(img);
           });
+
      </script>
 </footer>
 </html>
