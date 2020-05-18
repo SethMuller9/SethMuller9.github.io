@@ -84,6 +84,7 @@
       display: inline-block;
       width: auto;
       height: auto;
+      padding: 0px 2.5px;
     }
 
     /* Tooltip text */
@@ -99,6 +100,24 @@
       /* Position the tooltip text - see examples below! */
       position: absolute;
       z-index: 1;
+      background-color: #656565;
+      color: #fff;
+      text-align: center;
+      padding: 6px 12px;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+
+    }
+
+    .toooltip-1{
+      left: -200%;
+      top: -33px;
+    }
+
+    .toooltip-2{
+      left: -41%;
+      top: -33px;
     }
 
     /* Show the tooltip text when you mouse over the tooltip container */
@@ -116,13 +135,13 @@
        <div class='col-sm-6 col-xs-12'>
          <h2>Seth Muller</h2>
          <p>As a Web Developer I create intuitive, data-rich, and pixel-perfect web applications. With five years experience building web applications for digital marketing agencies I now seek clientwork at the intersection of good design, good development, and good business relationships. As a strategic problem solver and lightning fast learner, I am confident I can find the right development solutions for your needs...</p>
-        <br><br/>
+        <br>
          <p>
-            <a target="_blank" href="mailto:seth.muller1991@gmail.com" class="toooltip">
+            <a target="_blank" href="mailto:seth.muller1991@gmail.com" class="toooltip toooltip-1">
               <i style='color: #0A141E;' class="fas fa-envelope-square fa-3x"></i>
               <span class="toooltiptext">seth.muller1991@gmail.com</span>
             </a>
-            <a target="_blank" href="./images/Resume5-20.pdf" class="toooltip">
+            <a target="_blank" href="./images/Resume5-20.pdf" class="toooltip toooltip-2">
               <i style='color: #0A141E;' class="fas fa-3x fa-save"></i>
               <span class="toooltiptext">View Resume</span>
             </a>
