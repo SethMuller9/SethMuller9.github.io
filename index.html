@@ -79,21 +79,31 @@
      .blocker-b:hover{
           opacity: 0;
      }
-     .dont-hov{
-      color: black;
+    .tooltip {
       position: relative;
-      top: -10px;
-     }
-     .dont-hov:hover{
-        text-decoration: none;
-        color: black;
-     }
-     .dont-hov i{
-      color: black;
-      position: relative;
-      top: -10px;
-      text-decoration: none;
-     }
+      display: inline-block;
+      border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+     
+      /* Position the tooltip text - see examples below! */
+      position: absolute;
+      z-index: 1;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
 
 </style>
 <body>
@@ -108,14 +118,24 @@
         <br>
          <p>
             <h5>Links:</h5>
-            <a href="mailto:seth.muller1991@gmail.com"><i class="fas fa-envelope-square fa-3x"></i><span class='dont-hov'> &nbsp; seth.muller1991@gmail.com</span></a>
-            <br>
-            <a target="_blank" href="./images/Resume5-20.pdf"><i class="fas fa-3x fa-save"></i><span class='dont-hov'> &nbsp; resume.pdf</span></a>
-            <br>
-            <a target="_blank" href="https://www.linkedin.com/in/sethdmuller/"><i class="fa-3x fab fa-linkedin"></i></a>
-            <br>
-            <a href="https://www.instagram.com/seth_muller/" target='_blank'><i class="fab fa-instagram-square fa-3x"></i></a>
-
+            <div class="tooltip">
+              <a href="mailto:seth.muller1991@gmail.com">
+                <i style='color: #0A141E;' class="fas fa-envelope-square fa-3x"></i>
+              </a>
+              <span class="tooltiptext">seth.muller1991@gmail.com</span>
+            </div>
+            <div class="tooltip">
+              <a target="_blank" href="./images/Resume5-20.pdf">
+                <i style='color: #0A141E;' class="fas fa-3x fa-save"></i>
+              </a>
+              <span class="tooltiptext">View Resume</span>
+            </div>
+            <div class="tooltip">
+              <a target="_blank" href="https://www.linkedin.com/in/sethdmuller/"><i style='color: #0A141E;' class="fa-3x fab fa-linkedin"></i></a>
+            </div>
+            <div class="tooltip">
+              <a href="https://www.instagram.com/seth_muller/" target='_blank'><i style='color: #0A141E;' class="fab fa-instagram-square fa-3x"></i></a>
+            </div>
          </p>
        </div>  
      </div>
