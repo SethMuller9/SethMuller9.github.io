@@ -1,0 +1,49 @@
+:root{
+  --primary-color:#2E4D3E;
+  --secondary-color:#E8E4D8;
+  --accent-color:#D9A441;
+  --text-primary:#2D2D2D;
+  --text-secondary:#6B6B6B;
+  --background-light:#FFFFFF;
+}
+.site-footer{ background: var(--primary-color) !important; color: var(--secondary-color) !important; border-top:0; }
+.site-footer a{ color: var(--secondary-color) !important; text-decoration:none; }
+.site-footer a:hover{ color: var(--background-light) !important; }
+.footer-logo{ width:84px; height:auto; display:block; filter: drop-shadow(0 6px 18px rgba(0,0,0,.25)); }
+@media (min-width:900px){ .footer-logo{ width:100px; } }
+
+.newsletter, .footer-newsletter{ color: var(--secondary-color); }
+.newsletter input[type="email"], .footer-newsletter input[type="email"]{
+  background: rgba(232,228,216,.12);
+  border:1px solid rgba(232,228,216,.35);
+  color: var(--secondary-color);
+  padding:.7rem .9rem; border-radius:12px;
+}
+.newsletter input::placeholder, .footer-newsletter input::placeholder{ color: rgba(232,228,216,.7); }
+.newsletter input:focus, .footer-newsletter input:focus{
+  outline:none; border-color: var(--accent-color); box-shadow:0 0 0 .2rem rgba(217,164,65,.25);
+}
+.btn-newsletter{
+  background: var(--accent-color); color: var(--primary-color); border:0;
+  padding:.72rem 1.05rem; border-radius:999px; font-weight:700;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+  transition: transform .15s ease, box-shadow .2s ease, background .25s ease;
+}
+.btn-newsletter:hover{
+  background: linear-gradient(180deg, #EBC05A 0%, var(--accent-color) 100%);
+  transform: translateY(-1px); box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+.social-links{ display:flex; gap:.6rem; }
+.social-link{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:50%;
+  color: var(--secondary-color);
+  background: rgba(232,228,216,.12);
+  border:1px solid rgba(232,228,216,.25);
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+.social-link:hover{ background: var(--accent-color); color: var(--primary-color); transform: translateY(-1px); box-shadow:0 10px 24px rgba(217,164,65,.35); }
+
+/* Kill common utility conflicts inside footer */
+.site-footer [class*="text-"], .site-footer .text-muted, .site-footer .text-secondary{ color: var(--secondary-color) !important; }
+.site-footer .bg-light{ background: var(--primary-color) !important; }

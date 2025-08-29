@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "bootstrap": "^5.3.7",
+    "sass": "^1.90.0"
+  },
+"scripts": {
+  		"sass": "sass scss/main.scss css/main.css --watch"
+	}
+}
