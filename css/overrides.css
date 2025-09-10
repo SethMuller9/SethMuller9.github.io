@@ -688,3 +688,29 @@ h2.accordion-header{
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) inset;
 }
 
+#hero {
+  min-height: 100vh; /* fill viewport height */  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover; /* fills the area */
+  background-position: center; /* centers the image */
+  background-repeat: no-repeat;
+  position: relative;
+  color: white; /* text color over image */
+  background-image: url('../images/hero_banner_768.jpg');
+}
+
+/* Larger mobile */
+@media (min-width: 480px) {
+  #hero {
+    background-image: url('../images/hero_banner_768.jpg');
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  #hero {
+    background-image: url('../images/hero_banner_768.jpg');
+  }
+}

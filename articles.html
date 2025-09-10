@@ -68,6 +68,39 @@
 
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip-link:focus{position:static;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff}
+    /* Details/summary styling */
+.m-filter summary{
+  font-weight:600;
+  cursor:pointer;
+  list-style:none;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:4px 0;
+}
+.m-filter summary::-webkit-details-marker{ display:none; }
+.m-filter[open] summary{ border-bottom:1px solid #eee; margin-bottom:8px; }
+
+/* Only collapse on mobile; desktop stays open */
+@media (max-width: 992px){
+  .m-filter{ /* start collapsed on mobile */
+    border-radius:10px;
+  }
+  .m-filter:not([open]) > *:not(summary){ display:none; }
+  .m-filter summary::after{
+    content:"▾"; font-size:.9rem; opacity:.7;
+  }
+  .m-filter[open] summary::after{
+    content:"▴";
+  }
+}
+@media (max-width: 992px){
+  .sidebar{
+    position: static !important;
+    top: auto !important;
+    z-index: auto;
+    margin-bottom: 16px;
+  }
+  .layout-grid{ gap:16px; }
+}
   </style>
 </head>
 <body>
@@ -86,23 +119,32 @@
     <!-- Sidebar MENU -->
     <aside class="sidebar" aria-label="Blog menu">
       <div class="card" style="padding:16px; margin-bottom:16px">
-        <h3>Featured</h3>
-        <div id="featuredList" class="list"></div>
-      </div>
+  <details class="m-filter" open>
+    <summary>Featured</summary>
+    <div id="featuredList" class="list"></div>
+  </details>
+</div>
 
-      <div class="card" style="padding:16px; margin-bottom:16px">
-        <h3>Categories</h3>
-        <div id="categoryChips"></div>
-      </div>
+<div class="card" style="padding:16px; margin-bottom:16px">
+  <details class="m-filter" open>
+    <summary>Categories</summary>
+    <div id="categoryChips"></div>
+  </details>
+</div>
 
-      <div class="card" style="padding:16px">
-        <h3>Archive</h3>
-        <nav id="archiveList" class="archive-list" aria-label="Archive by month"></nav>
-      </div>
+<div class="card" style="padding:16px">
+  <details class="m-filter" open>
+    <summary>Archive</summary>
+    <nav id="archiveList" class="archive-list" aria-label="Archive by month"></nav>
+  </details>
+</div>
+  
     </aside>
 
     <!-- Content column -->
-    <section>
+    <div class="container">
+      
+    
       <!-- Search & filters toolbar -->
       <div class="toolbar" role="search">
         <input id="searchInput" type="search" placeholder="Search articles (title, tags, excerpt)..." aria-label="Search articles">
@@ -117,7 +159,7 @@
 
       <!-- Pagination -->
       <div id="pagination" class="pagination" aria-label="Pagination"></div>
-    </section>
+    </div>
   </div>
 </main>
 

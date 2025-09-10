@@ -1,19 +1,43 @@
+<style>/* Keep logo + hamburger aligned neatly */
+@media(max-width:720px){
+.navbar .brand-lockup img {
+  max-height: 75px; /* scale down for mobile if needed */
+}
+}
+.navbar .navbar-toggler {
+  border: none; /* cleaner look */
+  margin-left: auto;
+}
+</style>
 <nav aria-label="Primary" class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top auto-hide-navbar" role="navigation">
-<div class="container">
-<a class="navbar-brand d-flex align-items-center gap-2" href="/"><div class="brand-lockup"><img alt="New Pathways Psychotherapy logo" class="brand-logo" src="img/logo_transparent_NOTEXT.png"/><span class="brand-title">New Pathways</span><span class="brand-subtitle">
-  PSYCHOTHERAPY
-</span></div></a>
-<button aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#primaryNav" data-bs-toggle="collapse" type="button">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="primaryNav">
-<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-<li class="nav-item"><a class="nav-link np-nav" href="/index.html#services">Services</a></li>
-<li class="nav-item"><a class="nav-link np-nav" href="/index.html#about">About</a></li>
-<li class="nav-item"><a class="nav-link np-nav" href="/contact.html">Contact</a></li>
-<li class="nav-item"><a class="nav-link np-nav" href="/client-resources.html">Resources</a></li>
-<li class="nav-item"><a class="nav-link np-nav special" href="https://seth5.mytheranest.com/home/login" target="_blank">Client Portal</a></li>
-</ul>
-</div>
-</div>
+  <div class="container d-flex justify-content-between align-items-center">
+    
+    <!-- Brand + Toggler wrapper -->
+    <div class="d-flex align-items-center flex-grow-1">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="/">
+        <div class="brand-lockup">
+          <img alt="New Pathways Psychotherapy logo" class="brand-logo" src="img/logo_transparent_NOTEXT.png"/>
+          <span class="brand-title">New Pathways</span>
+          <span class="brand-subtitle">PSYCHOTHERAPY</span>
+        </div>
+      </a>
+      <!-- Hamburger sits right next to logo -->
+      <button class="navbar-toggler ms-auto ms-lg-3" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav"
+              aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- Collapsible nav links -->
+    <div class="collapse navbar-collapse flex-grow-0" id="primaryNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link np-nav" href="/index.html#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link np-nav" href="/index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link np-nav" href="/contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link np-nav" href="/client-resources.html">Resources</a></li>
+        <li class="nav-item"><a class="nav-link np-nav special" href="https://seth5.mytheranest.com/home/login" target="_blank">Client Portal</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
