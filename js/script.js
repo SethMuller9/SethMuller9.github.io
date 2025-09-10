@@ -149,3 +149,106 @@ document.addEventListener('DOMContentLoaded', () => {
   const items = Array.from(track.children);
   items.forEach(n => track.appendChild(n.cloneNode(true))); // duplicate for 200% width
 })();
+
+
+
+// Form hooks
+(function(){
+  const CONTACT_ENDPOINT = window.CONTACT_ENDPOINT || document.querySelector('#contact-form')?.dataset.endpoint || "{{CONTACT_ENDPOINT}}";
+  const NEWSLETTER_ENDPOINT = window.NEWSLETTER_ENDPOINT || document.querySelector('#newsletter-form')?.dataset.endpoint || "{{NEWSLETTER_ENDPOINT}}";
+
+  async function submitJSON(form, endpoint){
+    if(!endpoint || endpoint.startsWith('{{')){ console.warn('No endpoint configured for', form?.id); return false; }
+    const data = Object.fromEntries(new FormData(form).entries());
+    try{
+      const res = await fetch(endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+      if(!res.ok) throw new Error('Network error'); return true;
+    }catch(e){ console.error(e); return false; }
+  }
+
+  const cform = document.getElementById('contact-form');
+  if(cform){
+    cform.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const btn = cform.querySelector('button[type="submit"], button');
+      const status = cform.querySelector('.form-status');
+      if(btn) btn.disabled = true;  // will fix capitalization next
+      if(status) status.textContent = 'Sending...';
+      const ok = await submitJSON(cform, CONTACT_ENDPOINT);
+      if(ok){ if(status) status.textContent = 'Thanks — I’ll be in touch shortly.'; cform.reset(); }
+      else { if(status) status.textContent = 'There was a problem. Please email directly.'; }
+      if(btn) btn.disabled = false;
+    });
+  }
+
+  const nform = document.getElementById('newsletter-form');
+  if(nform){
+    nform.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const btn = nform.querySelector('button[type="submit"], button');
+      const status = nform.querySelector('.form-status');
+      if(btn) btn.disabled = true;
+      if(status) status.textContent = 'Subscribing...';
+      const ok = await submitJSON(nform, NEWSLETTER_ENDPOINT);
+      if(ok){ if(status) status.textContent = 'Subscribed! Welcome.'; nform.reset(); }
+      else { if(status) status.textContent = 'Could not subscribe — please try again.'; }
+      if(btn) btn.disabled = false;
+    });
+  }
+})();
+
+// === Pretty carousel swipe + auto-height ===
+(function(){
+  var id = 'homepageCarouselPretty';
+  function onReady(fn){ if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+
+  onReady(function(){
+    var el = document.getElementById(id);
+    if(!el) return;
+
+    // Swipe support
+    var startX = 0, deltaX = 0, active = false;
+    el.addEventListener('touchstart', function(e){ active = true; startX = e.touches[0].clientX; }, {passive:true});
+    el.addEventListener('touchmove', function(e){ if(!active) return; deltaX = e.touches[0].clientX - startX; }, {passive:true});
+    el.addEventListener('touchend', function(e){
+      if(!active) return;
+      if(Math.abs(deltaX) > 40){
+        var dir = deltaX > 0 ? 'prev' : 'next';
+        var carousel = bootstrap.Carousel.getOrCreateInstance(el);
+        carousel[dir]();
+      }
+      active = false; startX = 0; deltaX = 0;
+    }, {passive:true});
+  });
+})();
+// === End pretty carousel helpers ===
+
+
+
+// === Endorsements carousel controls ===
+(function(){
+  function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+  ready(function(){
+    var track = document.querySelector('#endorsementsCarousel .endorsements-track');
+    if(!track) return;
+    var prev = document.querySelector('.endorsements-btn.prev');
+    var next = document.querySelector('.endorsements-btn.next');
+
+    function scrollByCards(dir){
+      var card = track.querySelector('.endorsement-card');
+      if(!card) return;
+      var gap = parseFloat(getComputedStyle(track).columnGap||getComputedStyle(track).gap)||16;
+      var amount = card.getBoundingClientRect().width + gap;
+      track.scrollBy({ left: dir * amount, behavior:'smooth' });
+    }
+    prev && prev.addEventListener('click', function(){ scrollByCards(-1); });
+    next && next.addEventListener('click', function(){ scrollByCards(1); });
+
+    // Basic touch-swipe for the section
+    var startX=0, dx=0, active=false;
+    track.addEventListener('touchstart', function(e){ active=true; startX=e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchmove', function(e){ if(!active) return; dx=e.touches[0].clientX - startX; }, {passive:true});
+    track.addEventListener('touchend', function(){ if(!active) return; if(Math.abs(dx)>40) scrollByCards(dx>0?-1:1); active=false; dx=0; }, {passive:true});
+  });
+})();
+

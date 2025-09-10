@@ -1,9 +1,13 @@
 {
   "devDependencies": {
     "bootstrap": "^5.3.7",
-    "sass": "^1.90.0"
+    "concurrently": "^9.2.1",
+    "live-server": "^1.2.2",
+    "sass": "^1.91.0"
   },
-"scripts": {
-  		"sass": "sass scss/main.scss css/main.css --watch"
-	}
+  "scripts": {
+    "sass": "sass scss/main.scss css/main.css --watch",
+    "serve": "live-server ./ --port=5500",
+    "dev": "concurrently \"npm run sass\" \"npm run serve\""
+  }
 }

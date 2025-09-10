@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><style>
+/* ---- Critical CSS: layout-neutral to avoid top gap ---- */
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%;height:auto;display:block}
+/* No navbar or hero sizing here to avoid overriding site layout */
+/* ---- End Critical CSS ---- */
+</style><link as="style" href="css/overrides.css" rel="preload"/><link as="style" href="css/style.css" rel="preload"/><link as="style" href="css/bootstrap.min.css" rel="preload"/><link as="style" href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="preload"/><link crossorigin="" href="https://fonts.cdnfonts.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#2E4D3E" name="theme-color"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
+<link href="/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png">
+<link href="/site.webmanifest" rel="manifest"/>
+<meta content="/mstile-144x144.png" name="msapplication-TileImage"/>
+<meta content="#ffffff" name="msapplication-TileColor"/>
+<title>Fees &amp; Insurance | Affordable Counseling in Lakewood, CO</title>
+<style>
+    /* Minimal fallbacks in case your main CSS isn't loaded */
+    .np-bg-green { background-color: #2E4D3E; }
+    .np-text-sand { color: #E8E4D8; }
+    .content-wrap { padding-top: 96px; padding-bottom: 64px; }
+    .page-hero { padding: 96px 0 32px; background: #2E4D3E; color: #E8E4D8; }
+    .page-hero h1 { margin: 0; font-family: 'Playfair Display', serif; letter-spacing: .4px; }
+    .page-section h2 { margin-top: 2rem; }
+    .page-section p { line-height: 1.7; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: static; width: auto; height: auto; padding: 8px 12px; background: #000; color: #fff; }
+    nav a { text-decoration: none; }
+    .nav-link { padding: 8px 12px; display: inline-block; }
+    .nav-link.active { text-decoration: underline; text-underline-offset: 4px; }
+    footer p { margin: .25rem 0; }
+    .muted { opacity: .9; font-size: .95rem; }
+    .callout { padding: 16px; border-left: 4px solid #2E4D3E; background: #f7f7f7; }
+    .list-tight li { margin-bottom: .35rem; }
+    .fee-table { width:100%; border-collapse: collapse; }
+    .fee-table th, .fee-table td { padding: 10px 12px; border-bottom: 1px solid #e5e5e5; }
+    .fee-table th { text-align:left; background:#fafafa; }
+    .tag { display:inline-block; font-size:.85rem; padding:.25rem .5rem; border-radius:4px; background:#eef5f0; color:#2E4D3E; }
+    .note { font-size:.95rem; color:#333; }
+  
+/* === Page hero banner background with contrast overlay === */
+.page-hero {
+  position: relative;
+  background: #2E4D3E url('images/hero_banner_768.jpg') center / cover no-repeat;
+  color: #E8E4D8;
+  padding: 140px 0 48px; /* a bit taller since we have an image */
+  min-height: 260px;
+  isolation: isolate; /* ensure overlay stacking */
+}
+@media (max-width: 479.98px){
+  .page-hero { background-image: url('images/hero_banner_320.jpg'); }
+}
+@media (min-width: 480px){
+  .page-hero { background-image: url('images/hero_banner_480.jpg'); }
+}
+@media (min-width: 768px){
+  .page-hero { background-image: url('images/hero_banner_768.jpg'); }
+}
+@media (min-width: 1024px){
+  .page-hero { background-image: url('images/hero_banner_1024.jpg'); }
+}
+@media (min-width: 1440px){
+  .page-hero { background-image: url('images/hero_banner_1440.jpg'); }
+}
+@media (min-width: 1920px){
+  .page-hero { background-image: url('images/hero_banner_1920.jpg'); }
+}
+.page-hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,.12) 75%, rgba(0,0,0,0) 100%),
+    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35));
+  z-index: -1;
+}
+.page-hero h1{
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: .4px;
+  text-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+/* === End hero banner enhancement === */
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="stylesheet"/><link href="css/bootstrap.min.css" rel="stylesheet"/><link href="css/style.css" rel="stylesheet"/><link href="css/overrides.css" rel="stylesheet"/></link></link><meta content="Learn about therapy fees, insurance, and sliding-scale options at New Pathways Psychotherapy. Accessible care for every budget." name="description"/><style>
+/* Compact spacing to match services pages */
+.page-section{padding:1.25rem 0;}
+.page-section .lead{margin-bottom:.75rem}
+.container .page-section + .page-section{border-top:1px solid rgba(0,0,0,.06)}
+/* Apply to generic sections too if they lack class */
+section{margin:0;padding:1.25rem 0;}
+section + section{border-top:1px solid rgba(0,0,0,.06)}
+</style><style>
+/* Slightly tighter headings/body spacing */
+h2{margin-top:1rem;margin-bottom:.5rem}
+h3{margin-top:.875rem;margin-bottom:.5rem}
+p{margin:0 0 .75rem}
+ul,ol{margin:0 0 .75rem 1.25rem}
+</style></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div data-include="partials/navbar.html"></div>
+<header class="page-hero">
+<div class="container">
+<h1>Fees &amp; Insurance</h1>
+</div>
+</header>
+<main class="content-wrap" id="main">
+<div class="container">
+<section class="page-section">
+<h2>Overview</h2>
+<p>I am currently <strong>out-of-network</strong> and <strong>not accepting insurance</strong>. Many clients still use benefits by requesting a detailed receipt (a <em>superbill</em>) to seek <strong>out-of-network reimbursement</strong> directly from their insurer. If you would like a superbill, I’m happy to provide one upon request.</p>
+<p class="note">Important: Submitting claims to insurance typically requires a mental-health diagnosis and may share limited information with your insurer. If you prefer to avoid this, self-pay may be a better fit.</p>
+</section>
+<section class="page-section">
+<h2>Private Pay Rates</h2>
+<table class="fee-table">
+<thead>
+<tr><th>Service</th><th>Standard Fee</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td>Intake / First Session (55–60 min)</td><td>$140</td><td>History, goals, and initial plan</td></tr>
+<tr><td>Individual Session (45–50 min)</td><td>$140</td><td>Standard psychotherapy hour</td></tr>
+<tr><td>Extended Session (75–80 min)</td><td>$210</td><td>Optional, when clinically appropriate</td></tr>
+</tbody>
+</table>
+<p class="note">Payment is due at the time of service. <strong>HSA/FSA</strong> cards are typically accepted for eligible services.</p>
+</section>
+<section class="page-section">
+<h2>Sliding Scale</h2>
+<p>To expand access, I offer a limited number of <strong>sliding-scale</strong> spots between <strong>$65 and $140</strong> per session. Sliding-scale placement is based on <strong>household size</strong> and <strong>annual income</strong> with reference to the Federal Poverty Guidelines (FPG). A simple income attestation (and, if needed, brief documentation) may be requested.</p>
+<table class="fee-table">
+<thead>
+<tr><th>Income Guide (by % FPG)</th><th>Typical Fee</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>&lt; 200% FPG</td><td>$65</td><td>Lower-income households or significant hardship</td></tr>
+<tr><td>200–250% FPG</td><td>$85</td><td>Moderate income, limited disposable funds</td></tr>
+<tr><td>250–300% FPG</td><td>$105</td><td>Moderate income with some flexibility</td></tr>
+<tr><td>300–400% FPG</td><td>$125</td><td>Stable income, balancing competing expenses</td></tr>
+<tr><td>&gt; 400% FPG</td><td>$140</td><td>Standard rate</td></tr>
+</tbody>
+</table>
+<p class="note">This table is a guideline, not a guarantee. Availability depends on open reduced-fee spots. We’ll discuss your situation together to determine a fair, sustainable rate.</p>
+</section>
+<section class="page-section">
+<h2>Out-of-Network &amp; Superbill</h2>
+<ul class="list-tight">
+<li>I can provide a <strong>superbill</strong> with necessary codes for you to submit to your insurer.</li>
+<li>Reimbursement amounts and timelines are set by your plan; please contact your insurer for details.</li>
+<li>If a diagnosis is required for reimbursement, we’ll discuss what is clinically appropriate.</li>
+</ul>
+</section>
+<section class="page-section">
+<h2>Good Faith Estimate (No Surprises Act)</h2>
+<p>If you are <strong>self-pay</strong> or not using insurance, you are entitled to a <em>Good Faith Estimate</em> of expected charges. You’ll receive an estimate upon request and/or during scheduling. Actual costs may vary based on your needs and session frequency.</p>
+</section>
+<section class="page-section">
+<h2>Cancellation &amp; Late Arrivals</h2>
+<ul class="list-tight">
+<li><strong>24-hour notice</strong> is requested for cancellations or reschedules.</li>
+<li><strong>Late-cancel / no-show fee:</strong> up to the full session fee (waived for emergencies at my discretion).</li>
+<li>Arriving late may reduce session time while the full fee applies.</li>
+</ul>
+</section>
+<section class="page-section">
+<h2>Administrative Services</h2>
+<ul class="list-tight">
+<li><strong>Brief coordination</strong> (e.g., short emails, quick phone calls) is included as part of care.</li>
+<li><strong>Extended admin time</strong> (e.g., lengthy reports, forms, letters) may be billed in 15-minute increments at your session rate unless otherwise specified.</li>
+<li><strong>Records requests</strong> and formal documentation may incur standard fees permitted by law.</li>
+</ul>
+</section>
+<section class="page-section">
+<h2>Legal &amp; Court Policy</h2>
+<div class="callout">
+<p><strong>Important:</strong> I do not provide forensic evaluations or expert testimony. If I am compelled to participate in legal matters (e.g., subpoenas, depositions, or court appearances), you are responsible for <strong>all associated costs</strong> including reasonable <strong>attorneys’ fees</strong>, travel time, preparation, and appearance time. Court-related work is billed at an elevated hourly rate with minimums and may require a retainer.</p>
+</div>
+</section>
+<section class="page-section">
+<h2>Payment Methods</h2>
+<ul class="list-tight">
+<li>Major credit/debit cards</li>
+<li>HSA/FSA cards (eligible services)</li>
+<li>Electronic invoices/receipts available upon request</li>
+</ul>
+<p class="note">Balances must be kept current to continue services. Delinquent accounts may be paused and, if necessary, referred to collections pursuant to state and federal law.</p>
+</section>
+<section class="page-section">
+<h2>Questions</h2>
+<p>I’m happy to discuss your situation and help you explore options, including sliding scale availability or using out-of-network benefits.</p>
+</section>
+<hr style="margin-top:40px;"/>
+<p class="muted">Effective date: September 01, 2025</p>
+</div>
+</main>
+<div data-include="partials/footer.html"></div>
+<script defer="defer" src="js/bootstrap.min.js"></script><script defer="defer" src="js/script.js"></script><script defer="defer" src="js/include-partials.js"></script>
+</body>
+</html>

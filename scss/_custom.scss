@@ -13,14 +13,14 @@
 /* -----------------------
    Variables
 ----------------------- */
-$primary-color: #2E4D3E;     // Deep Sage Green
+$primary-color: #104239;     // Deep Sage Green
 $secondary-color: #E8E4D8;   // Soft Sand
 $accent-color: #D9A441;      // Warm Amber
 $text-primary: #2D2D2D;
 $text-secondary: #6B6B6B;
 $background-light: #FFFFFF;
  
-/* -----------------------
+/* ----------------------- 
    Global Styles 
 ----------------------- */
 body {
@@ -60,6 +60,8 @@ a {
 .fade-in-nav{
   opacity: .65;
 }
+
+
 
 /* -----------------------
    Hero/Banner Section
@@ -201,11 +203,16 @@ section {
 ----------------------- */
 .text-primary-custom {
   color: $primary-color !important;
-}
+} 
 
 .text-secondary-custom {
   color: $text-secondary !important;
 }
+
+.navbar-brand .logo{
+  width: 10%;
+}
+
 
 /* -----------------------
    Responsive Tweaks
@@ -326,7 +333,7 @@ section {
   }
 
   .newsletter .newsletter-form{
-    display:flex; gap:.5rem; align-items:center;
+    display:flex; align-items:center;
     background: linear-gradient(180deg, var(--bg-soft), #0a1326);
     border:1px solid var(--divider);
     border-radius: var(--radius);
@@ -352,7 +359,7 @@ section {
     transition: transform .15s ease, box-shadow .15s ease;
   }
   .newsletter .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px -12px var(--ring); }
-  .newsletter .microcopy{ color: var(--muted); font-size:.85rem; margin:.5rem .25rem 0; }
+  .newsletter .microcopy{ color: white; font-size:.85rem; margin:.5rem .25rem 0; }
 
   .footer-bottom{
     max-width:1200px; margin:1.25rem auto 0;
@@ -431,5 +438,35 @@ section {
 .hero .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px -10px rgba(0,0,0,0.3);
+}
+
+#hero {
+  position: relative;
+  isolation: isolate; /* ensures overlay layering works cleanly */
+}
+
+#heroContent {
+  position: relative;
+  z-index: 1; /* keeps text above overlay */
+}
+
+/* Inverse vignette (darkest center → transparent corners) */
+#hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0; 
+  pointer-events: none; 
+  background: radial-gradient(circle at center, 
+    rgba(0, 0, 0, 0.7) 0%, 
+    rgba(0, 0, 0, calc(0.7 * 0.95)) 20%, 
+    rgba(0, 0, 0, calc(0.7 * 0.35)) 45%, 
+    rgba(0, 0, 0, calc(0.7 * 0.1)) 70%, 
+    rgba(0, 0, 0, 0) 100%);
+}
+
+
+.hsfc-Step .hsfc-Step__Content{
+  padding:0px !important;
 }
 

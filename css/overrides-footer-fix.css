@@ -1,0 +1,35 @@
+
+/* === Footer rendering hardening === */
+.site-footer { position: relative; z-index: 0; }
+.site-footer .footer-top, 
+.site-footer .footer-bottom { position: relative; z-index: 1; }
+
+/* Ensure nav closes visually before footer-bottom */
+.site-footer .footer-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 900px){ .site-footer .footer-nav { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px){ .site-footer .footer-nav { grid-template-columns: 1fr; } }
+
+/* Guarantee legal links are visible and not overlapped */
+.site-footer .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.15); }
+.site-footer .footer-bottom .legal,
+.site-footer .footer-bottom .legal a { color: #E8E4D8 !important; text-decoration: none; }
+.site-footer .footer-bottom .dot { opacity: .7; margin: 0 .5rem; }
+
+/* Kill accidental absolute overlays */
+.site-footer .footer-nav, 
+.site-footer .footer-top, 
+.site-footer .footer-bottom { overflow: visible !important; }
+
+/* In case any global CSS set nav to inline or fixed */
+.site-footer .footer-nav { position: relative !important; }
+
+/* Make sure inner anchors show */
+.site-footer a { display: inline; }
+.site-footer .legal a { display: inline; }
+
+/* Social icon normalization (from previous fix) */
+.site-footer .social-links { display:flex; gap:10px; align-items:center; color:#E8E4D8; }
+.site-footer .social-link { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; line-height:0; text-decoration:none; color:inherit; background:transparent; overflow:visible; }
+.site-footer .social-link svg { width:20px; height:20px; display:block; }
+.site-footer .social-link svg * { fill: currentColor !important; stroke: none !important; }
+/* === End Footer rendering hardening === */

@@ -1,252 +1,231 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/overrides.css">
-	  <script src="js/bootstrap.min.js"></script>
-
-
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <meta name="msapplication-TileColor" content="#ffffff">
- 
-    <title>New Pathways Psychotherapy</title>
-  </head>
-  <body>
-
+<head><style>
+/* ---- Critical CSS: layout-neutral to avoid top gap ---- */
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%;height:auto;display:block}
+/* No navbar or hero sizing here to avoid overriding site layout */
+/* ---- End Critical CSS ---- */
+</style><link as="style" href="css/overrides-footer-fix.css" rel="preload"/><link as="style" href="css/overrides.css" rel="preload"/><link as="style" href="css/style.css" rel="preload"/><link as="style" href="css/bootstrap.min.css" rel="preload"/><link as="style" href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="preload"/><link crossorigin="" href="https://fonts.cdnfonts.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="stylesheet"/>
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/overrides.css" rel="stylesheet"/>
+<link href="css/overrides-footer-fix.css" rel="stylesheet"/>
+<script defer="defer" src="js/bootstrap.min.js"></script>
+<script src="https://js-na2.hsforms.net/forms/embed/243785226.js" defer></script>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
+<link href="/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png">
+<link href="/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest">
+<meta content="/mstile-144x144.png" name="msapplication-TileImage"/>
+<meta content="#ffffff" name="msapplication-TileColor"/>
+<title>New Pathways Psychotherapy | Trauma-Informed Counseling in Lakewood, CO</title>
+</link></link><meta content="Discover a warm, integrative approach to therapy in Lakewood, Colorado. New Pathways Psychotherapy helps individuals find healing, purpose, and growth." name="description"/></head>
+<body>
 <header id="top">
-  <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top" role="navigation" aria-label="Primary">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="/">
-        <img src="images/logo/Tree_of_Growth_and_Healing_transparent_square.png" alt="New Pathways Psychotherapy logo" class="d-inline-block align-text-top">
-        
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="primaryNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<div data-include="partials/navbar.html"></div>
 </header>
-
-  <header id="hero" class="fade-element d-flex justify-content-center align-items-center text-center ">
-    <div id="heroContent" class="banner-text text-center text-white fade-element">
-      <h1 class="text-white">Find a New Path Forward.</h1>
-       <div class="fade-element" id="heroSubtext">
-       	 <p>Proven and holistic therapy for all those seeking to heal and grow.</p>
-       	 <a href="#" class="btn btn-primary-custom">Learn More</a>
-       </div>
-    </div>
-  </header>
-
-  <main id="main-content" class="fade-element">
-
-  <!-- Services Section -->
-  <section id="services" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5">Our Services</h2>
-      <div class="row">
-        <!-- Service 1 -->
-        <div class="col-md-4 mb-4">
-          <div class="card p-3 h-100">
-            <div class="card-body">
-              <h5 class="card-title">Trauma Therapy</h5>
-              <p class="card-text">Individualized treatment approaches for the unique wounds we each carry.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="card p-3 h-100">
-            <div class="card-body">
-              <h5 class="card-title">Narrative Therapy</h5>
-              <p class="card-text">Speak the truth and allow us to bear witness to it.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="col-md-4 mb-4">
-          <div class="card p-3 h-100">
-            <div class="card-body">
-              <h5 class="card-title">Existential Therapy</h5>
-              <p class="card-text">To front the essential facts of life, and find purpose and meaning from it.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">What Our Clients Say</h2>
-    </div>
-    <div class="pt-carousel" aria-label="PsychologyToday endorsements">
-      <div class="track">
-        <article class="endorsement">
-          <img src="images/psych-today-badge.svg" alt="Psychology Today">
-          <blockquote>“Warm, grounded, and truly present throughout treatment.”</blockquote>
-          <cite>— Psychology Today</cite>
-        </article>
-        <article class="endorsement">
-          <img src="images/psych-today-badge.svg" alt="Psychology Today">
-          <blockquote>“Evidence-based and deeply compassionate care.”</blockquote>
-          <cite>— Psychology Today</cite>
-        </article>
-        <article class="endorsement">
-          <img src="images/psych-today-badge.svg" alt="Psychology Today">
-          <blockquote>“Helped me build lasting tools for everyday life.”</blockquote>
-          <cite>— Psychology Today</cite>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resources Section -->
-
-  <section id="resources" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5">Resources</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 p-3">
-            <div class="card-body">
-              <h5 class="card-title">Articles</h5>
-              <p class="card-text">Helpful articles to support your mental health journey.</p>
-              <a href="#" class="btn btn-secondary-custom">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 p-3">
-            <div class="card-body">
-              <h5 class="card-title">Assessments</h5>
-              <p class="card-text">A rich repository of tools designed to help you better understand yourself.</p>
-              <a href="#" class="btn btn-secondary-custom">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 p-3">
-            <div class="card-body">
-              <h5 class="card-title">Videos</h5>
-              <p class="card-text">Short video content offering tips and strategies for daily mental wellness.</p>
-              <a href="#" class="btn btn-secondary-custom">Watch</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  </main>
-  <!-- Sexy, accessible site footer -->
-<footer class="site-footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a class="brand" href="/" aria-label="New Pathways Psychotherapy home">
-        <img src="images/logo/Tree_of_Growth_and_Healing_transparent_square.png" alt="New Pathways Psychotherapy logo" class="footer-logo">
-      </a>
-      <p class="tagline">Proven and holistic therapy for all those seeking to heal and grow.</p>
-    </div>
-
-    <nav class="footer-nav" aria-label="Footer">
-      <div class="nav-col">
-        <h3>Practice</h3>
-        <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/fees">Fees & Insurance</a></li>
-          <li><a href="/faq">FAQ</a></li>
-        </ul>
-      </div>
-
-      <div class="nav-col">
-        <h3>Resources</h3>
-        <ul>
-          <li><a href="/blog">Articles</a></li>
-          <li><a href="/emergency">Crisis Resources</a></li>
-          <li><a href="/downloads">Client Forms</a></li>
-          <li><a href="/privacy">Privacy Policy</a></li>
-          <li><a href="/terms">Terms</a></li>
-        </ul>
-      </div>
-
-      <div class="nav-col contact">
-        <h3>Contact</h3>
-        <address>
-          13701 W. Jewell Avenue<br>
-          Suite 200-19<br>
-          Lakewood, CO 80228
-        </address>
-        <a class="contact-link" href="tel:+17206407876">(720)-640-7876</a>
-        <a class="contact-link" href="mailto:hseth@newpathwayspsychotherapy.co">Seth@NewPathwaysPsychotherapy.co</a>
-
-        <div class="social" aria-label="Social links">
-          <a href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2zM18 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM4 9h2v12H4zM9 9h2v1.7h.03C11.6 9.7 12.9 9 14.5 9 18 9 19 11.3 19 14.6V21h-2v-5.3c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21h-2z"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M13 22V12h3l1-3h-4V7a1 1 0 0 1 1-1h3V3h-3a4 4 0 0 0-4 4v2H7v3h3v10z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="nav-col newsletter">
-        <h3>Stay in the loop</h3>
-        <form class="newsletter-form" action="/subscribe" method="post">
-          <label class="sr-only" for="email">Email address</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required>
-          <button type="submit" class="btn" class="btn btn-newsletter">>Subscribe</button>
-        </form>
-        <p class="microcopy">No spam. Unsubscribe anytime.</p>
-      </div>
-    </nav>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="legal">
-      <span>© <span id="year"></span> New Pathways Psychotherapy, PLLC.</span>
-      <span class="dot">•</span>
-      <a href="/privacy">Privacy</a>
-      <span class="dot">•</span>
-      <a href="/terms">Terms</a>
-      <span class="dot">•</span>
-      <a href="/accessibility">Accessibility</a>
-    </div>
-    <a href="#top" class="to-top" aria-label="Back to top">
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 4l7 8h-4v8H9v-8H5z"/></svg>
-      Top
-    </a>
-  </div>
-</footer>
-
-
-  <script src="js/script.js"></script>
-  </body>
-
+<header class="fade-element d-flex justify-content-center align-items-center text-center" id="hero">
+<div class="banner-text text-center text-white fade-element" id="heroContent">
+<h1 class="text-white">Find a New Path Forward.</h1>
+<div class="fade-element" id="heroSubtext">
+<p>Proven and holistic therapy for all those seeking to heal and grow.</p>
+<a class="btn btn-primary-custom" href="#services">Learn More</a>
+</div>
+</div>
+</header>
+<main class="fade-element" id="main-content">
+<!-- Services Section -->
+<section class="py-5" id="services"><div aria-hidden="true" class="services-illustration fade-element"></div>
+<div class="container">
+<h2 class="text-center mb-5">Our Services</h2>
+<div class="row">
+<!-- Service 2 -->
+<div class="col-md-4 mb-4">
+<div class="card p-3 h-100">
+<div class="card-body"><img alt="Winding Path" decoding="async" fetchpriority="high" src="images/icon_1.png" style="max-width: 100px; margin-bottom: 12px; width:100%;"/>
+<h5 class="card-title">Existential Therapy</h5>
+<p class="card-text">Life’s deeper questions can sometimes feel isolating: Why am I here? How do I live with purpose? Existential therapy offers space to reflect on meaning, freedom, and responsibility. By facing these questions together, you’ll gain clarity and courage to live in alignment with your values and authentic self.</p>
+<a class="btn btn-secondary-custom" href="/existential.html">Explore</a>
+</div>
+</div>
+</div>
+<div class="col-md-4 mb-4">
+<div class="card p-3 h-100">
+<div class="card-body"><img alt="Neurons Connecting" decoding="async" loading="lazy" src="images/icon_2.png" style="max-width: 100px; margin-bottom: 12px; width:100%;"/>
+<h5 class="card-title">Integrative Therapy</h5>
+<p class="card-text">No two people are alike, and neither is healing. Integrative therapy draws from multiple approaches—mindfulness, DBT, IFS, person-centered, and more—to meet you where you are. Together we’ll build a flexible, holistic plan that supports your unique needs, strengths, and goals for growth.</p>
+<a class="btn btn-secondary-custom" href="/integrative.html">Explore</a>
+</div>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="col-md-4 mb-4">
+<div class="card p-3 h-100">
+<div class="card-body"><img alt="Heart and Shield" decoding="async" loading="lazy" src="images/icon_3.png" style="max-width: 100px; margin-bottom: 12px; width:100%;"/>
+<h5 class="card-title">Trauma Therapy</h5>
+<p class="card-text">Past wounds can shape how we see ourselves and others. Trauma therapy provides a safe, supportive space to gently process these experiences without rushing or retraumatizing. We’ll focus on strengthening your inner resources, restoring safety in your body and mind, and moving toward a life worth living.</p>
+<a class="btn btn-secondary-custom" href="/trauma.html">Explore</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+</main>
+<!-- Sexy, accessible site footer -->
+<section class="py-5 bg-image-section">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-10 text-brand-white">
+<p class="lead text-brand-white">Our approach is to meet you where you are, honoring your unique journey and experiences while offering approaches that are clinically-proven to help you along your chosen path. We really get to know you, which makes it possible to provide compassionate, proven, and wise counsel for your specific needs.</p>
+<p style="font-weight:400;">We utilize state-of-the-art techniques and evidence-based, best practices to provide a custom-tailored therapy experience that simply works. We can help you forge new neural pathways in your brain so that new pathways in life can start to appear.</p>
+<p style="font-weight:400; ">If you’re ready to set out on a journey of self-discovery and authentic living, then I encourage you to reach out and book a free consultation today.</p>
+<br/>
+<a class="btn btn-primary-custom" href="https://seth5.mytheranest.com/account/signup" target="_blank">Book Now</a>
+<span id="about"></span>
+</div>
+</div>
+</div>
+</section><section class="py-5">
+<div class="container">
+<div class="row align-items-center g-4">
+<div class="col-md-6">
+<br/>
+<br/>
+<img alt="Forest footbridge" class="img-fluid rounded-4 shadow-sm" decoding="async" loading="lazy" src="images/john-salzarulo-9MMd2uRpfvc-unsplash.jpg"/>
+</div>
+<div class="col-md-6">
+<h2 class="mb-3">Hi, I’m Seth.</h2>
+<p>I believe that every person has an innate ability to heal, grow, and find meaning—even when life feels overwhelming or disorienting. I don’t see therapy as “fixing” people, but rather helping you to uncover your strengths, clarify your values, and create space for new possibilities.
+<br/>
+<br/>
+I practice from an integrative and trauma-informed lens, drawing from modalities like IFS, DBT, existential therapy, interpersonal neurobiology, mindfulness, and person-centered counseling. This allows me to meet clients where they are—whether you’re seeking clarity on life’s biggest questions, relief from the weight of past trauma, or simply support navigating day-to-day stress. I work with individual adults and groups, and I hold a particular openness to neurodivergent clients who sometimes feel isolated or misunderstood.
+<br/>
+<br/>
+What matters most to me is helping clients return to their true selves, reconnect with their inner resources, and step into lives marked by authenticity, courage, and purpose.
+<br/>
+<br/>
+Outside of the therapy room, I enjoy <a href="https://www.instagram.com/civilandwilddesigns/?hl=en" target="_blank">woodworking</a> as well as skiing, sailing, biking, and generally spending time outdoors. These practices inform my work, and they remind me that healing isn’t just about insight, but about moving down a path with heartfelt intention.</p>
+<h5 style="margin-bottom: 20px;">Best wishes,</h5>
+<p>Seth D. Muller, <small style="font-size: 0.6em;font-weight: 700;">MA, LPCC, NCC</small></p>
+</div>
+</div>
+</div>
+</section>
+<section aria-label="Professional Endorsements" class="bg-image-section bg-image-section-2 endorsements-section">
+<div class="container">
+<br/>
+<div class="endorsements-head">
+<h2 class="text-center mb-4" style="color: white;
+    background: linear-gradient(45deg, #000000a1, transparent);
+    border-radius: 13px;
+    padding-left: 10px;
+    padding-right: 35px;
+    padding: 7px 35px 7px 10px;">What Others Are Saying</h2>
+<div class="endorsements-controls">
+<button aria-label="Previous endorsements" class="endorsements-btn prev" data-target="#endorsementsCarousel">←</button>
+<button aria-label="Next endorsements" class="endorsements-btn next" data-target="#endorsementsCarousel">→</button>
+</div>
+</div>
+<div aria-live="polite" class="endorsements-carousel" id="endorsementsCarousel" tabindex="0">
+<div class="endorsements-track">
+<div aria-label="Endorsement 4 of 4" aria-roledescription="slide" class="endorsement-card" role="group">
+<div class="endorsement-card__inner">
+<div class="endorsement-card__header">
+<img alt="Elizabeth Anne Selby" class="endorser-avatar" decoding="async" loading="lazy" src="https://psychologytoday.com/api/profile-photo/12aded82-4e7a-40e6-ad81-31b4f75d6bfb/80x100"/>
+<div class="endorser-meta">
+<div class="endorser-name">Elizabeth Anne Selby</div>
+<div class="endorser-suffix">MA, LPCC</div>
+</div>
+</div>
+<div class="endorsement-card__quote">I highly recommend Seth as a counselor. His thoughtful and intentional approach creates a safe, nurturing environment for all who are around him. Seth is a trusted resource in the mental health field and offers a healing experience to his clients.</div>
+</div>
+</div>
+<div aria-label="Endorsement 1 of 4" aria-roledescription="slide" class="endorsement-card" role="group">
+<div class="endorsement-card__inner">
+<div class="endorsement-card__header">
+<img alt="Linda  Lewin" class="endorser-avatar" decoding="async" loading="lazy" src="https://psychologytoday.com/api/profile-photo/8692f1ff-4645-4641-92c9-d89d99b470ef/80x100"/>
+<div class="endorser-meta">
+<div class="endorser-name">Linda  Lewin</div>
+<div class="endorser-suffix">MA, LPCC</div>
+</div>
+</div>
+<div class="endorsement-card__quote">Seth brings empathy, clinical skill, and a commitment to professional growth to his practice. He is genuinely invested in the long-term wellbeing of his clients, and I would highly recommend him to anyone seeking a compassionate counselor.</div>
+</div>
+</div>
+<div aria-label="Endorsement 3 of 4" aria-roledescription="slide" class="endorsement-card" role="group">
+<div class="endorsement-card__inner">
+<div class="endorsement-card__header">
+<img alt="Sarah  Lebovic" class="endorser-avatar" decoding="async" loading="lazy" src="https://psychologytoday.com/api/profile-photo/1fb93f77-6d82-4403-a9ee-65b00e9124d6/80x100"/>
+<div class="endorser-meta">
+<div class="endorser-name">Sarah  Lebovic</div>
+</div>
+</div>
+<div class="endorsement-card__quote">Seth is a capable, empathetic, and evidence-based clinician, demonstrating a deep understanding and appreciation for the complexities of human behavior. He consistently creates safe and supportive environment for his clients.</div>
+</div>
+</div>
+<div aria-label="Endorsement 2 of 4" aria-roledescription="slide" class="endorsement-card" role="group">
+<div class="endorsement-card__inner">
+<div class="endorsement-card__header">
+<img alt="Blaise  Selby" class="endorser-avatar" decoding="async" loading="lazy" src="https://psychologytoday.com/api/profile-photo/57684e31-2471-4d39-9066-957ae304db7e/80x100"/>
+<div class="endorser-meta">
+<div class="endorser-name">Blaise  Selby</div>
+<div class="endorser-suffix">MA</div>
+</div>
+</div>
+<div class="endorsement-card__quote">Seth is a kind and compassionate therapist who truly sees and hears his clients. He combines a profound depth of knowledge with a grounded, relational presence, making his support both insightful and deeply personal.</div>
+</div>
+</div>
+</div>
+</div>
+<br/>
+</div></section>
+<div class="container">
+<br/>
+<h2 class="text-center mb-5">Resources</h2>
+<div class="row">
+<div class="col-md-4 mb-4">
+<div class="card h-100 p-3">
+<div class="card-body">
+<h5 class="card-title">Articles</h5>
+<p class="card-text">Helpful articles to support your mental health journey.</p>
+<a class="btn btn-secondary-custom" href="#">Read More</a>
+</div>
+</div>
+</div>
+<div class="col-md-4 mb-4">
+<div class="card h-100 p-3">
+<div class="card-body">
+<h5 class="card-title">Booking</h5>
+<p class="card-text">For all new and prospective clients, please reach out to schedule a free 15-minute phone consultation.</p>
+<a class="btn btn-secondary-custom" href="https://seth5.mytheranest.com/account/signup" target="_blank">Book Now</a>
+</div>
+</div>
+</div>
+<div class="col-md-4 mb-4">
+<div class="card h-100 p-3">
+<div class="card-body">
+<h5 class="card-title">Client Resources</h5>
+<p class="card-text">A variety of content offering info and strategies for daily mental wellness.</p>
+<a class="btn btn-secondary-custom" href="/client-resources.html">View</a>
+</div>
+</div>
+</div>
+</div>
+</div><div data-include="partials/footer.html"></div>
+<script defer="defer" src="js/script.js"></script>
+<script defer="defer" src="js/include-partials.js"></script></body>
 </html>

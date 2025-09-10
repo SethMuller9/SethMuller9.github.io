@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><style>
+/* ---- Critical CSS: layout-neutral to avoid top gap ---- */
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%;height:auto;display:block}
+/* No navbar or hero sizing here to avoid overriding site layout */
+/* ---- End Critical CSS ---- */
+</style><link as="style" href="css/overrides.css" rel="preload"/><link as="style" href="css/style.css" rel="preload"/><link as="style" href="css/bootstrap.min.css" rel="preload"/><link as="style" href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="preload"/><link crossorigin="" href="https://fonts.cdnfonts.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#2E4D3E" name="theme-color"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
+<link href="/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<meta content="/mstile-144x144.png" name="msapplication-TileImage"/>
+<meta content="#ffffff" name="msapplication-TileColor"/>
+<title>Trauma-Informed Therapy | New Pathways Psychotherapy</title>
+<style>
+    /* Minimal fallbacks in case your main CSS isn't loaded */
+    .np-bg-green { background-color: #2E4D3E; }
+    .np-text-sand { color: #E8E4D8; }
+    .content-wrap { padding-top: 96px; padding-bottom: 64px; }
+    .page-hero { padding: 96px 0 32px; background: #2E4D3E; color: #E8E4D8; }
+    .page-hero h1 { margin: 0; font-family: 'Playfair Display', serif; letter-spacing: .4px; }
+    .page-section h2 { margin-top: 2rem; }
+    .page-section p { line-height: 1.7; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: static; width: auto; height: auto; padding: 8px 12px; background: #000; color: #fff; }
+    nav a { text-decoration: none; }
+    .nav-link { padding: 8px 12px; display: inline-block; }
+    .nav-link.active { text-decoration: underline; text-underline-offset: 4px; }
+    footer p { margin: .25rem 0; }
+    .muted { opacity: .9; font-size: .95rem; }
+    .callout { padding: 16px; border-left: 4px solid #2E4D3E; background: #f7f7f7; }
+    .list-tight li { margin-bottom: .35rem; }
+  
+/* === Page hero banner background with contrast overlay === */
+.page-hero {
+  position: relative;
+  background: #2E4D3E url('images/hero_banner_768.jpg') center / cover no-repeat;
+  color: #E8E4D8;
+  padding: 140px 0 48px; /* a bit taller since we have an image */
+  min-height: 260px;
+  isolation: isolate; /* ensure overlay stacking */
+}
+@media (max-width: 479.98px){
+  .page-hero { background-image: url('images/hero_banner_320.jpg'); }
+}
+@media (min-width: 480px){
+  .page-hero { background-image: url('images/hero_banner_480.jpg'); }
+}
+@media (min-width: 768px){
+  .page-hero { background-image: url('images/hero_banner_768.jpg'); }
+}
+@media (min-width: 1024px){
+  .page-hero { background-image: url('images/hero_banner_1024.jpg'); }
+}
+@media (min-width: 1440px){
+  .page-hero { background-image: url('images/hero_banner_1440.jpg'); }
+}
+@media (min-width: 1920px){
+  .page-hero { background-image: url('images/hero_banner_1920.jpg'); }
+}
+.page-hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.06) 40%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 100%), linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06));
+  z-index: -1;
+}
+.page-hero h1{
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: .4px;
+  text-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+/* === End hero banner enhancement === */
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="stylesheet"><link href="css/bootstrap.min.css" rel="stylesheet"/><link href="css/style.css" rel="stylesheet"><link href="css/overrides.css" rel="stylesheet"/></link></link><meta content="Compassionate trauma-informed counseling for PTSD, anxiety, and healing from difficult experiences. Serving Lakewood, CO and surrounding areas." name="description"/><style>
+/* Service-page compact spacing */
+.page-section{padding: 1.25rem 0;}
+.page-section .lead{margin-bottom: .75rem}
+.container .page-section + .page-section{border-top: 1px solid rgba(0,0,0,.06)}
+</style><style>
+/* Trauma page-specific hero with responsive image-set (webp + jpeg) */
+.page-hero {
+  position: relative;
+  color: #E8E4D8;
+  padding: 120px 0 40px;
+  min-height: 300px;
+  isolation: isolate;
+  background: #2E4D3E url('images/trauma_hero_768.jpg') center/cover no-repeat;
+  background-image: image-set(
+    url('images/trauma_hero_768.webp') type('image/webp') 1x,
+    url('images/trauma_hero_768.jpg') type('image/jpeg') 1x
+  );
+}
+@media (max-width: 479.98px){
+  .page-hero{
+    background-image: image-set(
+      url('images/trauma_hero_320.webp') type('image/webp') 1x,
+      url('images/trauma_hero_320.jpg') type('image/jpeg') 1x
+    );
+  }
+}
+@media (min-width: 480px){
+  .page-hero{
+    background-image: image-set(
+      url('images/trauma_hero_480.webp') type('image/webp') 1x,
+      url('images/trauma_hero_480.jpg') type('image/jpeg') 1x
+    );
+  }
+}
+@media (min-width: 768px){
+  .page-hero{
+    background-image: image-set(
+      url('images/trauma_hero_768.webp') type('image/webp') 1x,
+      url('images/trauma_hero_768.jpg') type('image/jpeg') 1x
+    );
+  }
+}
+@media (min-width: 1200px){
+  .page-hero{
+    background-image: image-set(
+      url('images/trauma_hero_1200.webp') type('image/webp') 1x,
+      url('images/trauma_hero_1200.jpg') type('image/jpeg') 1x
+    );
+  }
+}
+@media (min-width: 1600px){
+  .page-hero{
+    background-image: image-set(
+      url('images/trauma_hero_1600.webp') type('image/webp') 1x,
+      url('images/trauma_hero_1600.jpg') type('image/jpeg') 1x
+    );
+  }
+}
+.page-hero::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 40%, rgba(0,0,0,.35), rgba(0,0,0,.55) 60%);
+  z-index:0;
+}
+.page-hero .container, .page-hero h1{ position:relative; z-index:1; }
+/* Compact spacing between sections already handled; keep */
+</style></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div data-include="partials/navbar.html"></div>
+<header class="page-hero">
+<div class="container">
+<h1>Trauma‑Informed Therapy</h1>
+</div>
+</header>
+<main class="content-wrap" id="main">
+<div class="container">
+<section class="page-section">
+<p class="lead">Trauma‑informed therapy that is gentle, paced, and effective—supporting your nervous system while we heal the roots of stuck patterns.</p>
+</section>
+<section class="page-section">
+<h2>Safety first</h2>
+<ul class="list-tight">
+<li>We go slow enough for your body to stay regulated—no re‑traumatization</li>
+<li>Clear consent and choice at every step</li>
+<li>Grounding tools you can use between sessions</li>
+</ul>
+</section>
+<section class="page-section">
+<h2>Approach</h2>
+<ul>
+<li><strong>IFS‑informed:</strong> Heal protective and wounded parts with compassion</li>
+<li><strong>Somatic regulation:</strong> Orienting, breath, and gentle movement to widen your window of tolerance</li>
+<li><strong>DBT skills:</strong> Practical tools for emotion regulation and distress tolerance</li>
+<li><strong>Attachment lens:</strong> Repair relational templates with steady, attuned therapy</li>
+</ul>
+</section>
+<section class="page-section">
+<h2>Signs therapy is working</h2>
+<ul class="list-tight">
+<li>Fewer triggers; faster recovery after stress</li>
+<li>Less shame; more compassion and agency</li>
+<li>Better sleep, boundaries, and connection</li>
+</ul>
+</section>
+<section class="page-section">
+<h2>Logistics</h2>
+<p>In‑person in Lakewood, CO and secure telehealth across Colorado. Sliding‑scale spots available. See <a href="/fees-and-insurance.html">fees &amp; insurance</a>.</p>
+<p><a class="btn btn-primary-custom" href="/booking.html">Book a consult</a> <a class="btn btn-secondary-custom" href="/contact.html">Contact</a></p>
+</section>
+</div>
+</main>
+<div data-include="partials/footer.html"></div>
+<script defer="defer" src="js/bootstrap.min.js"></script><script defer="defer" src="js/script.js"></script><script defer="defer" src="js/include-partials.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will I have to retell everything?", "acceptedAnswer": {"@type": "Answer", "text": "No. We go at your pace and only as much detail as is helpful. Safety and choice come first."}}, {"@type": "Question", "name": "Do you treat PTSD and complex trauma?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We use gentle, evidence‑informed methods to build regulation and resolve root patterns."}}, {"@type": "Question", "name": "Is this appropriate if I feel high‑functioning?", "acceptedAnswer": {"@type": "Answer", "text": "Yes—many clients look fine from the outside but feel overwhelmed inside. We tailor pacing to you."}}]}</script></body>
+</html>
