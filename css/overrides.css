@@ -728,4 +728,17 @@ h2.accordion-header{
     margin-bottom: 4px;     /* small breathing room */
   }
 }
+/* Make the logo + text sit in a neat row with a vertical text stack */
+
+
+/* Mobile tweak */
+@media(max-width:720px){
+  .navbar .brand-lockup img.brand-logo{ height:59px; }
+  .brand-title{
+    font-size:.8rem;
+  }
+  .brand-subtitle{
+    font-size: .4rem;
+  }
+}
 
