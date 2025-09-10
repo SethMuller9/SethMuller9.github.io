@@ -714,3 +714,18 @@ h2.accordion-header{
     background-image: url('../images/hero_banner_768.jpg');
   }
 }
+
+/* Mobile-specific navbar tweaks */
+@media (max-width: 720px) {
+  .navbar .brand-lockup img {
+    max-height: 75px; /* scale logo size down if needed */
+  }
+
+  /* Push hamburger to bottom-right of the navbar container */
+  .navbar .navbar-toggler {
+    align-self: flex-end;   /* bottom of the flex row */
+    margin-top: auto;       /* push it down */
+    margin-bottom: 4px;     /* small breathing room */
+  }
+}
+
