@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Fade in the hero font subtext
   setTimeout(() => {
     heroSubtext.classList.add('fade-in');
-  }, 3350); // small delay to trigger transition
+  }, 3150); // small delay to trigger transition
 
 
   // Fade in the rest of the page after hero
@@ -251,4 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
     track.addEventListener('touchend', function(){ if(!active) return; if(Math.abs(dx)>40) scrollByCards(dx>0?-1:1); active=false; dx=0; }, {passive:true});
   });
 })();
+
+document.addEventListener("DOMContentLoaded", function() {
+  var formContainer = document.getElementById("hs-form-virality-container");
+  if (formContainer) {
+    formContainer.style.display = "none";   // fully hides it
+    // OR: formContainer.style.visibility = "hidden"; // keeps space but hides content
+  }
+});
 

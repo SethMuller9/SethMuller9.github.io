@@ -1,111 +1,382 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<head><style>
-/* ---- Critical CSS: layout-neutral to avoid top gap ---- */
-html{scroll-behavior:smooth}
-*{box-sizing:border-box}
-body{margin:0}
-img{max-width:100%;height:auto;display:block}
-/* No navbar or hero sizing here to avoid overriding site layout */
-/* ---- End Critical CSS ---- */
-</style><link as="style" href="css/overrides.css" rel="preload"/><link as="style" href="css/style.css" rel="preload"/><link as="style" href="css/bootstrap.min.css" rel="preload"/><link as="style" href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="preload"/><link crossorigin="" href="https://fonts.cdnfonts.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com" rel="preconnect"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="#2E4D3E" name="theme-color"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
-<link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
-<link href="/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png">
-<link href="/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
-<link href="/site.webmanifest" rel="manifest">
-<meta content="/mstile-144x144.png" name="msapplication-TileImage"/>
-<meta content="#ffffff" name="msapplication-TileColor"/>
-<title>Therapy Articles &amp; Resources | New Pathways Psychotherapy</title>
-<style>
-    /* Minimal fallbacks in case your main CSS isn't loaded */
-    .np-bg-green { background-color: #2E4D3E; }
-    .np-text-sand { color: #E8E4D8; }
-    .content-wrap { padding-top: 96px; padding-bottom: 64px; }
-    .page-hero { padding: 96px 0 32px; background: #2E4D3E; color: #E8E4D8; }
-    .page-hero h1 { margin: 0; font-family: 'Playfair Display', serif; letter-spacing: .4px; }
-    .page-section h2 { margin-top: 2rem; }
-    .page-section p { line-height: 1.7; }
-    .container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
-    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { position: static; width: auto; height: auto; padding: 8px 12px; background: #000; color: #fff; }
-    nav a { text-decoration: none; }
-    .nav-link { padding: 8px 12px; display: inline-block; }
-    .nav-link.active { text-decoration: underline; text-underline-offset: 4px; }
-    footer p { margin: .25rem 0; }
-    .muted { opacity: .9; font-size: .95rem; }
-    .callout { padding: 16px; border-left: 4px solid #2E4D3E; background: #f7f7f7; }
-    .list-tight li { margin-bottom: .35rem; }
-  
-/* === Page hero banner background with contrast overlay === */
-.page-hero {
-  position: relative;
-  background: #2E4D3E url('images/hero_banner_768.jpg') center / cover no-repeat;
-  color: #E8E4D8;
-  padding: 140px 0 48px; /* a bit taller since we have an image */
-  min-height: 260px;
-  isolation: isolate; /* ensure overlay stacking */
-}
-@media (max-width: 479.98px){
-  .page-hero { background-image: url('images/hero_banner_320.jpg'); }
-}
-@media (min-width: 480px){
-  .page-hero { background-image: url('images/hero_banner_480.jpg'); }
-}
-@media (min-width: 768px){
-  .page-hero { background-image: url('images/hero_banner_768.jpg'); }
-}
-@media (min-width: 1024px){
-  .page-hero { background-image: url('images/hero_banner_1024.jpg'); }
-}
-@media (min-width: 1440px){
-  .page-hero { background-image: url('images/hero_banner_1440.jpg'); }
-}
-@media (min-width: 1920px){
-  .page-hero { background-image: url('images/hero_banner_1920.jpg'); }
-}
-.page-hero::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at center, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,.12) 75%, rgba(0,0,0,0) 100%),
-    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35));
-  z-index: -1;
-}
-.page-hero h1{
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: .4px;
-  text-shadow: 0 2px 6px rgba(0,0,0,.35);
-}
-/* === End hero banner enhancement === */
+<head>
+  <!-- Minimal critical + your stack -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#2E4D3E"/>
+  <title>Articles & Resources | New Pathways Psychotherapy</title>
+  <meta name="description" content="Explore trauma, healing, relationships, and growth. Articles from New Pathways Psychotherapy."/>
+  <link rel="preload" as="style" href="css/overrides.css"/>
+  <link rel="preload" as="style" href="css/style.css"/>
+  <link rel="preload" as="style" href="css/bootstrap.min.css"/>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="css/overrides.css" rel="stylesheet"/>
 
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="stylesheet"/><link href="css/bootstrap.min.css" rel="stylesheet"/><link href="css/style.css" rel="stylesheet"/><link href="css/overrides.css" rel="stylesheet"/></link></link><meta content="Read articles and resources on trauma, healing, relationships, and personal growth. Insights from New Pathways Psychotherapy in Lakewood, CO." name="description"/></head>
+  <style>
+    /* Layout */
+    html{scroll-behavior:smooth} *{box-sizing:border-box} body{margin:0}
+    img{max-width:100%;height:auto;display:block}
+    .container-narrow{max-width:1120px;margin:0 auto;padding:0 16px}
+    .content-wrap{padding-top:96px;padding-bottom:64px}
+    .page-hero{
+      position:relative; padding:140px 0 48px; min-height:260px; color:#E8E4D8;
+      background:#2E4D3E url('images/hero_banner_1024.jpg') center/cover no-repeat; isolation:isolate;
+    }
+    .page-hero::before{content:"";position:absolute;inset:0;z-index:-1;
+      background:radial-gradient(ellipse at center,rgba(0,0,0,.55)0,rgba(0,0,0,.35)40%,rgba(0,0,0,.12)75%,rgba(0,0,0,0)100%),
+                 linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35));
+    }
+    .page-hero h1{margin:0;font-family:'Playfair Display',serif;letter-spacing:.4px;text-shadow:0 2px 6px rgba(0,0,0,.35)}
+    .layout-grid{display:grid; grid-template-columns:280px 1fr; gap:32px}
+    @media (max-width: 992px){ .layout-grid{grid-template-columns:1fr} }
+
+    /* Sidebar “menu” */
+    .sidebar{position:sticky; top:88px; align-self:start}
+    .card{border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,.06); border:1px solid rgba(0,0,0,.06)}
+    .card h3{font-size:1.05rem;margin:0 0 .5rem}
+    .chip{display:inline-block; padding:.25rem .6rem; border-radius:999px; font-size:.9rem; margin:.2rem .25rem .2rem 0; background:#f2f2f2; cursor:pointer}
+    .chip.active{background:#2E4D3E;color:#E8E4D8}
+    .archive-list a{display:block; padding:.3rem 0; color:#2b2b2b; text-decoration:none}
+    .archive-list a.active{font-weight:600; text-decoration:underline; text-underline-offset:3px}
+
+    /* Search + filters bar */
+    .toolbar{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:16px}
+    .toolbar input[type="search"]{flex:1 1 300px; padding:.6rem .8rem; border:1px solid #ddd; border-radius:10px}
+    .toolbar .clear-btn{border:none;background:#eee;padding:.55rem .8rem;border-radius:10px;cursor:pointer}
+    .toolbar .clear-btn:hover{background:#e2e2e2}
+
+    /* Post list */
+    .post{padding:20px; border-bottom:1px solid #eee}
+    .post:last-child{border-bottom:none}
+    .post h2{font-family:'Playfair Display',serif;font-size:1.65rem;margin:.25rem 0}
+    .meta{font-size:.92rem; color:#777; display:flex; gap:10px; flex-wrap:wrap}
+    .tags .chip{background:#f6f6f6}
+    .excerpt{margin:.5rem 0 0}
+    .read-more{display:inline-block;margin-top:.5rem}
+
+    /* Pagination */
+    .pagination{display:flex;gap:8px;justify-content:center;margin-top:20px}
+    .page-btn{border:1px solid #ddd;background:#fff;padding:.45rem .75rem;border-radius:8px;cursor:pointer}
+    .page-btn.active{background:#2E4D3E;color:#E8E4D8;border-color:#2E4D3E}
+
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff}
+  </style>
+</head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div data-include="partials/navbar.html"></div>
+
 <header class="page-hero">
-<div class="container">
-<h1>Articles</h1>
-</div>
+  <div class="container-narrow">
+    <h1>Articles & Resources</h1>
+    <p class="muted">Insights on trauma, healing, and growth</p>
+  </div>
 </header>
-<main class="content-wrap" id="main">
-<div class="container">
-<section class="page-section">
-<h2>Coming Soon...</h2>
-<p></p>
-<p class="muted">Effective date: September 01, 2025</p>
-</section></div>
+
+<main id="main" class="content-wrap">
+  <div class="container-narrow layout-grid">
+    <!-- Sidebar MENU -->
+    <aside class="sidebar" aria-label="Blog menu">
+      <div class="card" style="padding:16px; margin-bottom:16px">
+        <h3>Featured</h3>
+        <div id="featuredList" class="list"></div>
+      </div>
+
+      <div class="card" style="padding:16px; margin-bottom:16px">
+        <h3>Categories</h3>
+        <div id="categoryChips"></div>
+      </div>
+
+      <div class="card" style="padding:16px">
+        <h3>Archive</h3>
+        <nav id="archiveList" class="archive-list" aria-label="Archive by month"></nav>
+      </div>
+    </aside>
+
+    <!-- Content column -->
+    <section>
+      <!-- Search & filters toolbar -->
+      <div class="toolbar" role="search">
+        <input id="searchInput" type="search" placeholder="Search articles (title, tags, excerpt)..." aria-label="Search articles">
+        <button class="clear-btn" id="clearFilters" type="button">Clear filters</button>
+      </div>
+
+      <!-- Active filters -->
+      <div id="activeFilters" class="tags" aria-live="polite" style="margin-bottom:10px"></div>
+
+      <!-- Posts list -->
+      <div id="postList" aria-live="polite"></div>
+
+      <!-- Pagination -->
+      <div id="pagination" class="pagination" aria-label="Pagination"></div>
+    </section>
+  </div>
 </main>
+
 <div data-include="partials/footer.html"></div>
-<script defer="defer" src="js/bootstrap.min.js"></script><script defer="defer" src="js/script.js"></script><script defer="defer" src="js/include-partials.js"></script></body>
+
+<script defer src="js/bootstrap.min.js"></script>
+<script defer src="js/include-partials.js"></script>
+<script>
+/** ====== BLOG DATA ======
+ * Add/edit posts here. Content can live on separate pages;
+ * use `url` to link out, or keep as one-page by using hash anchors.
+ */
+const POSTS = [
+  {
+    id: 'what-is-trauma-therapy-anymore',
+    title: 'What Is Trauma Therapy, Anymore?',
+    url: 'article-trauma-therapy.html', // or '#what-is-trauma-therapy-anymore' if same page
+    date: '2025-09-01', // YYYY-MM-DD
+    author: 'New Pathways Psychotherapy',
+    minutes: 7,
+    featured: true,
+    categories: ['Trauma', 'Therapy', 'Essays'],
+    tags: ['EMDR','Attachment','Somatic','Common Factors','Therapeutic Alliance'],
+    excerpt: 'Across modalities and time, good trauma therapy rests on safety, attunement, meaning-making, and empowerment — with an irreplaceable human connection at its core.'
+  },
+  {
+    id: 'polyvagal-basics',
+    title: 'Polyvagal Basics: Getting Your Nervous System on Your Side',
+    url: '#',
+    date: '2025-08-18',
+    author: 'New Pathways Psychotherapy',
+    minutes: 5,
+    featured: false,
+    categories: ['Nervous System','Skills'],
+    tags: ['Polyvagal','Grounding','Breathwork'],
+    excerpt: 'A quick guide to the vagus nerve, states of arousal, and simple daily practices to improve regulation.'
+  },
+  {
+    id: 'parts-work-introduction',
+    title: 'Meeting Your Inner “Parts”: A Gentle Intro to IFS',
+    url: '#',
+    date: '2025-07-29',
+    author: 'New Pathways Psychotherapy',
+    minutes: 6,
+    featured: false,
+    categories: ['IFS','Therapy'],
+    tags: ['Parts','Self','Compassion'],
+    excerpt: 'Why you feel pulled in different directions — and how to befriend the inner system that’s trying to protect you.'
+  },
+  {
+    id: 'dbt-distress-tolerance',
+    title: 'DBT Distress Tolerance: What to Do When You’re Overwhelmed',
+    url: '#',
+    date: '2025-06-22',
+    author: 'New Pathways Psychotherapy',
+    minutes: 4,
+    featured: false,
+    categories: ['DBT','Skills'],
+    tags: ['TIPP','STOP','Grounding'],
+    excerpt: 'When emotions surge, use concrete tools to ride the wave without making things worse.'
+  }
+];
+
+/** ====== RENDER LOGIC ====== */
+const state = {
+  search: '',
+  category: null,
+  archive: null, // '2025-09'
+  page: 1,
+  perPage: 6
+};
+
+const $ = sel => document.querySelector(sel);
+const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+function formatDate(iso){
+  const d = new Date(iso+'T00:00:00');
+  return d.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'2-digit' });
+}
+function ym(iso){ return iso.slice(0,7); } // YYYY-MM
+
+function uniqueSorted(arr){ return [...new Set(arr)].sort((a,b)=>a.localeCompare(b)); }
+
+function computeCategories(){
+  return uniqueSorted(POSTS.flatMap(p => p.categories || []));
+}
+function computeArchives(){
+  const map = new Map();
+  POSTS.forEach(p => {
+    const key = ym(p.date);
+    map.set(key, (map.get(key)||0)+1);
+  });
+  return [...map.entries()].sort((a,b)=> b[0].localeCompare(a[0])); // newest first
+}
+
+function applyFilters(){
+  const q = state.search.trim().toLowerCase();
+  let list = POSTS.slice().sort((a,b)=> b.date.localeCompare(a.date));
+
+  if (q) {
+    list = list.filter(p =>
+      (p.title||'').toLowerCase().includes(q) ||
+      (p.excerpt||'').toLowerCase().includes(q) ||
+      (p.tags||[]).join(' ').toLowerCase().includes(q)
+    );
+  }
+  if (state.category){
+    list = list.filter(p => (p.categories||[]).includes(state.category));
+  }
+  if (state.archive){
+    list = list.filter(p => ym(p.date)===state.archive);
+  }
+  return list;
+}
+
+function renderFeatured(){
+  const featured = POSTS.filter(p => p.featured).slice(0,3);
+  const el = $('#featuredList');
+  el.innerHTML = featured.map(p => `
+    <a href="${p.url}" class="archive-link">
+      ${p.title} <br><span class="muted">${formatDate(p.date)} · ${p.minutes} min</span>
+    </a>
+  `).join('');
+}
+
+function renderCategories(){
+  const cats = computeCategories();
+  const el = $('#categoryChips');
+  el.innerHTML = cats.map(c => `
+    <span class="chip ${state.category===c?'active':''}" role="button" tabindex="0" data-cat="${c}">${c}</span>
+  `).join('') + (cats.length ? `<span class="chip ${!state.category?'active':''}" role="button" tabindex="0" data-cat="">All</span>` : '');
+  el.addEventListener('click', e=>{
+    const chip = e.target.closest('.chip'); if(!chip) return;
+    state.category = chip.dataset.cat || null; state.page = 1; syncHash(); renderAll();
+  }, { once:true });
+  el.addEventListener('keydown', e=>{
+    if(e.key==='Enter' || e.key===' '){ e.preventDefault(); e.target.click(); }
+  });
+}
+
+function renderArchive(){
+  const list = computeArchives();
+  const el = $('#archiveList');
+  el.innerHTML = list.map(([ymKey,count])=>{
+    const [y,m] = ymKey.split('-');
+    const label = new Date(`${ymKey}-01T00:00:00`).toLocaleDateString(undefined,{year:'numeric',month:'long'});
+    const active = state.archive===ymKey ? 'active' : '';
+    return `<a class="${active}" href="#archive=${ymKey}" data-ym="${ymKey}">${label} <span class="muted">(${count})</span></a>`;
+  }).join('') + (list.length? `<a href="#archive=">All months</a>` : '');
+  el.addEventListener('click', e=>{
+    const a = e.target.closest('a'); if(!a) return;
+    const ymKey = a.dataset.ym || '';
+    state.archive = ymKey || null; state.page = 1; syncHash(); renderAll();
+  }, { once:true });
+}
+
+function renderActiveFilters(){
+  const el = $('#activeFilters');
+  const bits = [];
+  if (state.search) bits.push(`<span class="chip active">Search: “${escapeHtml(state.search)}”</span>`);
+  if (state.category) bits.push(`<span class="chip active">Category: ${escapeHtml(state.category)}</span>`);
+  if (state.archive){
+    const label = new Date(`${state.archive}-01T00:00:00`).toLocaleDateString(undefined,{year:'numeric',month:'long'});
+    bits.push(`<span class="chip active">Month: ${label}</span>`);
+  }
+  el.innerHTML = bits.join(' ');
+}
+
+function paginate(list){
+  const start = (state.page-1)*state.perPage;
+  return list.slice(start, start+state.perPage);
+}
+
+function renderPosts(){
+  const list = applyFilters();
+  const pageItems = paginate(list);
+  const el = $('#postList');
+  el.innerHTML = pageItems.map(p=>`
+    <article class="post" aria-labelledby="post-${p.id}">
+      <div class="meta"><span>${formatDate(p.date)}</span><span>•</span><span>${p.minutes} min read</span></div>
+      <h2 id="post-${p.id}"><a href="${p.url}">${p.title}</a></h2>
+      <div class="tags" aria-label="Tags">
+        ${(p.tags||[]).map(t=>`<span class="chip" tabindex="0" role="button" data-tag="${t}">${t}</span>`).join('')}
+      </div>
+      <p class="excerpt">${p.excerpt}</p>
+      <a class="read-more" href="${p.url}" aria-label="Read ${p.title}">Read more →</a>
+    </article>
+  `).join('') || `<p class="muted">No articles match your filters.</p>`;
+
+  // tag click: convert to search
+  el.addEventListener('click', e=>{
+    const chip = e.target.closest('[data-tag]'); if(!chip) return;
+    state.search = chip.dataset.tag; state.page=1; $('#searchInput').value = state.search; syncHash(); renderAll();
+  }, { once:true });
+
+  renderPagination(list.length);
+}
+
+function renderPagination(total){
+  const pages = Math.ceil(total / state.perPage);
+  const el = $('#pagination');
+  if (pages <= 1){ el.innerHTML = ''; return; }
+  let html = '';
+  for(let i=1;i<=pages;i++){
+    html += `<button class="page-btn ${i===state.page?'active':''}" data-p="${i}" aria-label="Go to page ${i}">${i}</button>`;
+  }
+  el.innerHTML = html;
+  el.addEventListener('click', e=>{
+    const btn = e.target.closest('.page-btn'); if(!btn) return;
+    state.page = parseInt(btn.dataset.p,10); syncHash(); renderAll(false);
+    window.scrollTo({ top: document.querySelector('#main').offsetTop - 80, behavior:'smooth' });
+  }, { once:true });
+}
+
+function escapeHtml(s){ return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+
+/** URL hash sync so filters are shareable */
+function syncHash(){
+  const params = new URLSearchParams();
+  if (state.search) params.set('q', state.search);
+  if (state.category) params.set('cat', state.category);
+  if (state.archive) params.set('ym', state.archive);
+  if (state.page>1) params.set('p', String(state.page));
+  const hash = params.toString();
+  history.replaceState(null,'', hash ? '#'+hash : location.pathname+location.search);
+}
+function restoreFromHash(){
+  const params = new URLSearchParams(location.hash.slice(1));
+  state.search = params.get('q') || '';
+  state.category = params.get('cat') || null;
+  state.archive = params.get('ym') || null;
+  state.page = parseInt(params.get('p')||'1',10);
+  $('#searchInput').value = state.search;
+}
+
+function wireSearch(){
+  $('#searchInput').addEventListener('input', e=>{
+    state.search = e.target.value; state.page=1; syncHash(); renderAll();
+  });
+  $('#clearFilters').addEventListener('click', ()=>{
+    state.search=''; state.category=null; state.archive=null; state.page=1;
+    $('#searchInput').value=''; syncHash(); renderAll();
+  });
+}
+
+function renderAll(resetPage=true){
+  if (resetPage) state.page = 1;
+  renderActiveFilters();
+  renderPosts();
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderFeatured();
+  renderCategories();
+  renderArchive();
+  restoreFromHash();
+  wireSearch();
+  renderAll(false);
+});
+</script>
+</body>
 </html>
