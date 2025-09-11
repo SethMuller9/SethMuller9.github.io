@@ -698,20 +698,20 @@ h2.accordion-header{
   background-repeat: no-repeat;
   position: relative;
   color: white; /* text color over image */
-  background-image: url('../images/hero_banner_768.jpg');
+  background-image: url('../images/hero_banner_1024.jpg');
 }
 
 /* Larger mobile */
 @media (min-width: 480px) {
   #hero {
-    background-image: url('../images/hero_banner_768.jpg');
+    background-image: url('../images/hero_banner_1024.jpg');
   }
 }
 
 /* Tablet */
 @media (min-width: 768px) {
   #hero {
-    background-image: url('../images/hero_banner_768.jpg');
+    background-image: url('../images/hero_banner_1024.jpg');
   }
 }
 
@@ -733,12 +733,25 @@ h2.accordion-header{
 
 /* Mobile tweak */
 @media(max-width:720px){
-  .navbar .brand-lockup img.brand-logo{ height:59px; }
+  .navbar .brand-lockup img.brand-logo{ height:65px; }
   .brand-title{
-    font-size:.8rem;
+    font-size:.83rem;
   }
   .brand-subtitle{
-    font-size: .4rem;
+    font-size: .45rem;
   }
 }
-
+.banner-text p{    
+    font-weight: 300;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-size: 1.45rem;
+  }
+@media (max-width: 768px) {
+    .banner-text p {
+        font-size: 1.1rem;
+        font-weight: 300;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+}
