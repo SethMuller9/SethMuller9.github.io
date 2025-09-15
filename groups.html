@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    /* ---- Critical CSS: layout-neutral to avoid top gap ---- */
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    body{margin:0}
+    img{max-width:100%;height:auto;display:block}
+  </style>
+  <link rel="preload" as="style" href="css/overrides.css"/>
+  <link rel="preload" as="style" href="css/style.css"/>
+  <link rel="preload" as="style" href="css/bootstrap.min.css"/>
+  <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/helvetica-neue-5"/>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#2E4D3E"/>
+  <title>Groups | New Pathways Psychotherapy</title>
+  <meta name="description" content="Process-oriented therapy groups grounded in Yalom’s interpersonal model. Build insight, practice new ways of relating, and heal in connection."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="stylesheet"/>
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="css/overrides.css" rel="stylesheet"/>
+
+  <style>
+    .np-bg-green { background-color: #2E4D3E; }
+    .np-text-sand { color: #E8E4D8; }
+    .content-wrap { padding-top: 96px; padding-bottom: 64px; }
+    .page-hero {
+      position: relative; background: #2E4D3E url('images/hero_banner_768.jpg') center/cover no-repeat;
+      color: #E8E4D8; padding: 140px 0 48px; min-height: 260px; isolation: isolate;
+    }
+    .page-hero::before{
+      content:""; position:absolute; inset:0; z-index:-1;
+      background:
+        radial-gradient(ellipse at center, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,.12) 75%, rgba(0,0,0,0) 100%),
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35));
+    }
+    .page-hero h1{ margin:0; font-family:'Playfair Display', serif; letter-spacing:.4px; text-shadow:0 2px 6px rgba(0,0,0,.35) }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    .page-section h2 { margin-top: 2rem; font-family:'Playfair Display',serif }
+    .page-section p { line-height: 1.7; }
+    .muted { opacity:.9; font-size:.95rem }
+    .card { border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,.06); border:1px solid rgba(0,0,0,.06) }
+    .list-tight li{ margin-bottom:.35rem }
+    .pill { display:inline-block; padding:.25rem .6rem; border-radius:999px; background:#E8E4D8; color:#104239; font-weight:600; font-size:.85rem; }
+    .cta { display:inline-block; padding:.75rem 1.1rem; border-radius:999px; text-decoration:none; background:linear-gradient(135deg,#D9A441,#E8E4D8); color:#104239; font-weight:700; box-shadow:0 6px 14px rgba(0,0,0,.15); transition:transform .25s ease, box-shadow .25s ease; }
+    .cta:hover{ transform:translateY(-2px); box-shadow:0 10px 18px rgba(0,0,0,.2) }
+    details.group-faq { border:1px solid rgba(0,0,0,.08); border-radius:12px; padding:12px 16px; margin:10px 0 }
+    details.group-faq summary{ cursor:pointer; font-weight:600; list-style:none }
+    details.group-faq summary::-webkit-details-marker{ display:none }
+    details.group-faq[open]{ background:#fafafa }
+    @media (max-width: 479.98px){ .page-hero { background-image: url('images/hero_banner_320.jpg'); } }
+    @media (min-width: 480px){ .page-hero { background-image: url('images/hero_banner_480.jpg'); } }
+    @media (min-width: 768px){ .page-hero { background-image: url('images/hero_banner_768.jpg'); } }
+    @media (min-width: 1024px){ .page-hero { background-image: url('images/hero_banner_1024.jpg'); } }
+    @media (min-width: 1440px){ .page-hero { background-image: url('images/hero_banner_1440.jpg'); } }
+    @media (min-width: 1920px){ .page-hero { background-image: url('images/hero_banner_1920.jpg'); } }
+  </style>
+</head>
+<body>
+
+<div data-include="partials/navbar.html"></div>
+
+<header class="page-hero">
+  <div class="container">
+    <h1>Group Psychotherapy</h1>
+  </div>
+</header>
+
+<main class="content-wrap" id="main">
+  <div class="container">
+        <h3>Groups are grounded in <strong>interpersonal neurobiology</strong>, <strong>attachment theory</strong>, and <strong>existential therapy</strong>.</h3>
+
+    <!-- Lead -->
+    <section class="page-section">
+      <p><span class="pill">Now Forming</span></p>
+      <p>Group therapy is a uniquely powerful way to heal in connection. Following Irvin Yalom’s work, our groups focus on the <em>here-and-now</em>—how we relate, protect, withdraw, and reach for others—so that members can practice new ways of being that translate to life outside the room.</p>
+      <p><a class="cta" href="/contact.html#contact-us" aria-label="Inquire about groups">Request a brief consult →</a></p>
+    </section>
+
+    <!-- Therapeutic Factors -->
+    <section class="page-section">
+      <h2>What makes group work?</h2>
+      <div class="card" style="padding:16px">
+        <ul class="list-tight">
+          <li><strong>Universality:</strong> discovering you are not alone.</li>
+          <li><strong>Instillation of hope:</strong> witnessing others grow encourages your own.</li>
+          <li><strong>Interpersonal learning:</strong> live feedback about impact and intentions.</li>
+          <li><strong>Cohesion & belonging:</strong> a safe “micro-community” for honest risk-taking.</li>
+          <li><strong>Corrective emotional experiences:</strong> new relational outcomes for old templates.</li>
+          <li><strong>Altruism & catharsis:</strong> giving and receiving help, sharing what’s held inside.</li>
+          <li><strong>Development of socializing techniques:</strong> practicing boundaries, needs, and repair.</li>
+          <li><strong>Existential factors:</strong> facing responsibility, freedom, meaning, and limits together.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section class="page-section">
+      <h2>Who benefits</h2>
+      <p>Adults seeking deeper, relational change—especially those navigating patterns of anxiety, people-pleasing, conflict avoidance, isolation, attachment wounds, or life transitions. Individual therapy may continue alongside group when useful.</p>
+      <ul class="list-tight">
+        <li>Ready to give and receive feedback in a supportive way.</li>
+        <li>Willing to explore emotions and relationship patterns in the present moment.</li>
+        <li>Able to commit to confidentiality and regular attendance.</li>
+      </ul>
+    </section>
+
+    <!-- Structure / Logistics -->
+    <section class="page-section">
+      <h2>Format & logistics</h2>
+      <div class="card" style="padding:16px">
+        <ul class="list-tight">
+          <li><strong>Type:</strong> Interpersonal process group (closed after formation).</li>
+          <li><strong>Size:</strong> 6–8 members.</li>
+          <li><strong>Facilitator:</strong> Seth Muller, M.A., LPCC.</li>
+          <li><strong>Meeting:</strong> Weekly, 90 minutes (Lakewood office).</li>
+          <li><strong>Commitment:</strong> Initial 12 weeks; option to continue.</li>
+          <li><strong>Fee:</strong> $60–$85 per session (sliding scale available).</li>
+          <li><strong>Attendance:</strong> Consistency matters for cohesion; please plan to attend weekly.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- What to expect -->
+    <section class="page-section">
+      <h2>What to expect in group</h2>
+      <ul class="list-tight">
+        <li>Focus on the <em>here-and-now</em>—how you experience others and how they experience you.</li>
+        <li>Gentle encouragement to name feelings, needs, and boundaries.</li>
+        <li>Opportunities to practice repair when misunderstandings occur.</li>
+        <li>Leader models curiosity, safety, and feedback; members co-create the culture.</li>
+      </ul>
+    </section>
+
+    <!-- Confidentiality & Safety -->
+    <section class="page-section">
+      <h2>Confidentiality & safety</h2>
+      <p>Group members agree to protect one another’s privacy. Safety includes respectful language, avoiding advice-giving unless requested, speaking from your own experience, and checking consent before giving feedback. Crisis care is handled individually—group is not a 24/7 service.</p>
+    </section>
+
+    <!-- Enrollment -->
+    <section class="page-section">
+      <h2>How to join</h2>
+      <ol class="list-tight">
+        <li><strong>Brief consult (10–15 min):</strong> confirm fit and answer questions.</li>
+        <li><strong>Intake session (50 min):</strong> goals, history, and readiness for group.</li>
+        <li><strong>Placement:</strong> if the group is full, you may opt for the waitlist.</li>
+      </ol>
+      <p><a class="cta" href="/contact.html#contact-us">Start the consult →</a></p>
+      <p class="muted">Insurance is not billed for groups at this time. Superbills available upon request.</p>
+    </section>
+
+    <!-- FAQs -->
+    <section class="page-section">
+      <h2>FAQs</h2>
+
+      <details class="group-faq">
+        <summary>What if I’m not sure what to say?</summary>
+        <div><p>That’s common. The work begins with noticing your internal experience in the group—curiosity, anxiety, interest—and sharing a little of that out loud.</p></div>
+      </details>
+
+      <details class="group-faq">
+        <summary>Can I talk about events outside group?</summary>
+        <div><p>Yes—but we’ll invite you to explore how those events impact you <em>here, with us</em>, so the group can support new relational experiences.</p></div>
+      </details>
+
+      <details class="group-faq">
+        <summary>How is this different from a class or support group?</summary>
+        <div><p>It’s experiential. Rather than teach skills or go around with updates, we attend to the living relationships in the room—Yalom’s interpersonal focus.</p></div>
+      </details>
+
+      <details class="group-faq">
+        <summary>What if conflict happens?</summary>
+        <div><p>Conflict is workable and often healing. We slow down, check impact, repair, and learn new ways of being with differences and needs.</p></div>
+      </details>
+    </section>
+
+    <!-- Contact -->
+    <section class="page-section">
+      <h2>Interested?</h2>
+      <p>Reach out for a quick phone consult to see if a current group is a good fit.</p>
+      <p><a class="cta" href="/contact.html#contact-us">Inquire about groups →</a></p>
+      <p class="muted">Updated: September 01, 2025</p>
+    </section>
+  </div>
+</main>
+
+<div data-include="partials/footer.html"></div>
+<script defer src="js/bootstrap.min.js"></script>
+<script defer src="js/script.js"></script>
+<script defer src="js/include-partials.js"></script>
+</body>
+</html>

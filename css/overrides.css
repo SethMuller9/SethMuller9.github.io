@@ -755,3 +755,137 @@ h2.accordion-header{
         padding-right: 7px;
     }
 }
+/* === Endorsements carousel: full-bleed + scroll snap === */
+.endorsements-section { position: relative; }
+
+/* Let the carousel go edge-to-edge on small screens so snap matches viewport */
+.endorsements-carousel{
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  /* Pull it outside .container padding to truly fill the viewport */
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 16px; /* add back a little safe padding for aesthetics */
+  /* Prevent horizontal scrollbar height from impacting layout jumps */
+  contain: paint;
+}
+
+/* Track lays out slides in a row with no gaps that would break snap */
+.endorsements-track{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100vw;       /* one full viewport per slide */
+  gap: 0;
+}
+
+/* Each slide snaps to the left edge of the viewport */
+.endorsement-card{
+  scroll-snap-align: start;
+  scroll-snap-stop: always;       /* stronger snapping on mobile */
+  min-height: 100%;
+  display: flex;
+  align-items: stretch;
+  margin: 0;                      /* kill any margins that cause cut-offs */
+}
+
+/* Optional: inner card styling that won't break sizing */
+.endorsement-card__inner{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 720px;               /* keeps content readable on desktop */
+  margin-inline: auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+/* Avatar sanity: avoid layout shift */
+.endorser-avatar{
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  flex: 0 0 auto;
+  border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+/* On wider screens, show multiple cards if you want */
+@media (min-width: 992px){
+  .endorsements-carousel{
+    margin-inline: 0;       /* no need for full-bleed inside wide container */
+    padding-inline: 0;
+  }
+  .endorsements-track{
+    grid-auto-columns: min(50%, 600px); /* 2-up or fixed width tiles */
+    gap: 16px;
+  }
+  .endorsement-card{
+    scroll-snap-align: start;
+  }
+}
+/* SCROLLER: full-bleed viewport width, no side padding */
+.endorsements-carousel{
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  margin-inline: calc(50% - 50vw); /* full-bleed so 100vw really is the viewport */
+  padding: 0;                      /* ✨ remove side padding to prevent cut-off */
+  overscroll-behavior-x: contain;
+  scrollbar-gutter: stable both-edges;
+}
+
+/* TRACK: one slide per viewport */
+.endorsements-track{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100vw;        /* exactly one viewport per tile */
+  gap: 0;
+}
+
+/* SLIDE: add the inner padding here instead of on scroller */
+.endorsement-card{
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding-inline: 16px;            /* 👈 move “gutter” into the slide */
+  box-sizing: border-box;          /* include padding in the 100vw width */
+}
+
+/* Inner card can be constrained for readability */
+.endorsement-card__inner{
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+/* Optional: desktop layout */
+@media (min-width: 992px){
+  .endorsements-carousel{
+    margin-inline: 0;  /* back inside container on wide screens */
+  }
+  .endorsements-track{
+    grid-auto-columns: min(50%, 600px);
+    gap: 16px;
+  }
+  .endorsement-card{
+    padding-inline: 0; /* container handles spacing on desktop */
+  }
+}
+.cta-exist a{
+    margin-bottom: 10px;
+    margin-top:5px;
+    display: inline-block;
+}
