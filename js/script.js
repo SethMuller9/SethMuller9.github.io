@@ -1,262 +1,186 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const hero = document.getElementById('hero');
-  const heroContent = document.getElementById('heroContent');
-  const mainContent = document.getElementById('main-content');
-  const heroSubtext = document.getElementById('heroSubtext');
+// --- EVERYTHING runs after DOM is ready *or* after partials are injected ---
+(function () {
+  // -------- HERO FADES / REVEALS --------
+  function initHero() {
+    const hero        = document.getElementById('hero');
+    const heroContent = document.getElementById('heroContent');
+    const heroSubtext = document.getElementById('heroSubtext');
+    const mainContent = document.getElementById('main-content');
 
-  // Fade in the hero first
-  setTimeout(() => {
-    hero.classList.add('fade-in');
-  }, 160); // small delay to trigger transition
+    setTimeout(() => hero?.classList.add('fade-in'),        160);
+    setTimeout(() => heroContent?.classList.add('fade-in'), 1500);
+    setTimeout(() => heroSubtext?.classList.add('fade-in'), 3350);
+    setTimeout(() => mainContent?.classList.add('fade-in'), 1000);
+  }
 
-  // Fade in the hero font
-  setTimeout(() => {
-    heroContent.classList.add('fade-in');
-  }, 1500); // small delay to trigger transition
+  // === ENDORSEMENTS CAROUSEL DRIVER ===
+(() => {
+  const wrap  = document.querySelector('#endorsementsCarousel');
+  if (!wrap) return;
 
+  const track = wrap.querySelector('.endorsements-track');
+  const prev  = document.querySelector('.endorsements-btn.prev');
+  const next  = document.querySelector('.endorsements-btn.next');
+  if (!track || !prev || !next) return;
 
-  // Fade in the hero font subtext
-  setTimeout(() => {
-    heroSubtext.classList.add('fade-in');
-  }, 3150); // small delay to trigger transition
+  // Compute how far to scroll (width of one card + flex gap)
+  const stepPx = () => {
+    const card = track.querySelector('.endorsement-card');
+    if (!card) return 0;
+    const gap = parseFloat(getComputedStyle(track).gap || getComputedStyle(track).columnGap || 0);
+    return Math.round(card.getBoundingClientRect().width + gap);
+  };
 
+  const scrollByStep = (dir = 1) => {
+    track.scrollBy({ left: dir * stepPx(), behavior: 'smooth' });
+  };
 
-  // Fade in the rest of the page after hero
-  setTimeout(() => {
-    mainContent.classList.add('fade-in');
-  }, 1000); // matches hero fade duration + small buffer
-});
+  prev.addEventListener('click', () => scrollByStep(-1));
+  next.addEventListener('click', () => scrollByStep(1));
 
-
-// Navbar shadow on scroll
-document.addEventListener('scroll', () => {
-  const nav = document.querySelector('.navbar');
-  if (!nav) return;
-  if (window.scrollY > 8) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-});
-
-
-// ---- Reveal on scroll ----
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      revealObserver.unobserve(entry.target);
-    }
+  // Keyboard arrows when the carousel has focus
+  wrap.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); scrollByStep(1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); scrollByStep(-1); }
   });
-}, { threshold: 0.8 });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  // Disable buttons at the ends for better UX
+  const updateButtons = () => {
+    const max = track.scrollWidth - track.clientWidth - 1;
+    prev.disabled = track.scrollLeft <= 0;
+    next.disabled = track.scrollLeft >= max;
+  };
 
-// ---- Navbar fade in after hero ----
-const hero = document.querySelector('#hero');
-const nav = document.querySelector('.navbar');
-if (hero && nav) {
-  const navObserver = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      // On hero: hide / transparent navbar
-      document.body.classList.remove('nav-visible');
-    } else {
-      // Past hero: show navbar
-      document.body.classList.add('nav-visible');
-    }
-  }, { threshold: 0.3 });
-  navObserver.observe(hero);
-}
+  track.addEventListener('scroll', updateButtons, { passive: true });
+  window.addEventListener('resize', updateButtons);
+  // Ensure smooth behavior even if CSS got changed
+  track.style.scrollBehavior = 'smooth';
+
+  updateButtons();
+})();
 
 
-// Auto-add .reveal to common content blocks if markup lacks it
-document.querySelectorAll('section, .container > .row, .card, .feature, .content-block')
-  .forEach(el => { if (!el.classList.contains('reveal')) el.classList.add('reveal'); });
+  // -------- REVEAL ON SCROLL --------
+  function initReveal() {
+    // Auto-tag common blocks if they lack .reveal
+    document.querySelectorAll('section, .container > .row, .card, .feature, .content-block')
+      .forEach(el => { if (!el.classList.contains('reveal')) el.classList.add('reveal'); });
 
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, root: null, rootMargin: '0px 0px -10% 0px' });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // ---- Add .reveal to common content blocks ----
-  const revealSelectors = [
-    'section',
-    'main > *',
-    '.container > .row',
-    '.card',
-    '.feature',
-    '.content-block',
-    '[id*="services" i]',
-    '[id*="about" i]',
-    '[id*="group" i]',
-    '[id*="contact" i]'
-  ];
-  const toMark = new Set();
-  revealSelectors.forEach(sel => document.querySelectorAll(sel).forEach(el => toMark.add(el)));
-  toMark.forEach(el => { if (!el.classList.contains('reveal')) el.classList.add('reveal'); });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  }
 
-  // ---- Reveal on scroll ----
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        revealObserver.unobserve(entry.target);
-      }
+  // -------- SHADOW ON SCROLL (pure cosmetics) --------
+  function initShadow() {
+    const nav = document.querySelector('.navbar');
+    if (!nav) return;
+    const toggleShadow = () => {
+      if (window.scrollY > 8) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    document.addEventListener('scroll', toggleShadow, { passive: true });
+    toggleShadow();
+  }
+
+  // -------- AUTO-HIDE NAVBAR (scroll/hover only) --------
+  function initAutoHideNav() {
+    const nav = document.querySelector('.auto-hide-navbar');
+    if (!nav) return;
+
+    // Avoid double-binding if partials re-run us.
+    if (nav.dataset.autoHideInit === '1') return;
+    nav.dataset.autoHideInit = '1';
+
+    const HIDE_AFTER_IDLE_MS  = 700;
+    const HIDE_AFTER_LEAVE_MS = 900;
+
+    let activated = false; // becomes true after first *real* activity
+    let menuOpen  = false; // Bootstrap collapse status
+    let timer     = null;
+
+    // Start hidden. (CSS default already hides, but this ensures no flash if HTML carried a show class.)
+    nav.classList.remove('is-shown');
+
+    const show = () => {
+      if (menuOpen) return;              // keep visible while the mobile menu is open
+      nav.classList.add('is-shown');
+    };
+
+    const hide = () => {
+      if (menuOpen) return;
+      if (nav.matches(':hover')) return; // don’t hide while actually hovered
+      nav.classList.remove('is-shown');
+    };
+
+    const ping = (delay = HIDE_AFTER_IDLE_MS) => {
+      // Don’t activate on synthetic initial scroll at y=0
+      if (!activated && window.scrollY <= 2 && !nav.matches(':hover')) return;
+      activated = true;
+      show();
+      clearTimeout(timer);
+      timer = setTimeout(hide, delay);
+    };
+
+    // Real activity = scroll / wheel / touch / keydown
+    ['scroll', 'wheel', 'touchmove', 'touchstart', 'keydown'].forEach((evtName) => {
+      window.addEventListener(evtName, () => {
+        // Guard the first scroll event if it's still at y=0
+        if (!activated && evtName === 'scroll' && window.scrollY <= 2) return;
+        ping(HIDE_AFTER_IDLE_MS);
+      }, { passive: true });
     });
-  }, { root: null, threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // ---- Navbar fade in after hero ----
-  const hero = document.querySelector('#hero');
-  const nav = document.querySelector('.navbar');
-  if (hero && nav) {
-    const navObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        document.body.classList.remove('nav-visible');
-      } else {
-        document.body.classList.add('nav-visible');
-      }
-    }, { threshold: 0.05 });
-    navObserver.observe(hero);
+    // Hover guard (prevents “hover lock” after leaving)
+    nav.addEventListener('mouseenter', () => { show(); clearTimeout(timer); });
+    nav.addEventListener('mouseleave', () => {
+      clearTimeout(timer);
+      timer = setTimeout(hide, HIDE_AFTER_LEAVE_MS);
+    });
 
-    // initialize state on load (in case hero not in view initially)
-    const initRect = hero.getBoundingClientRect();
-    if (initRect.top <= 0 || initRect.bottom <= 0) {
-      document.body.classList.add('nav-visible');
+    // Integrate with Bootstrap collapse so it doesn’t hide while the menu is open
+    const collapse = document.getElementById('primaryNav');
+    if (collapse) {
+      collapse.addEventListener('shown.bs.collapse', () => {
+        menuOpen = true;
+        nav.classList.add('is-shown');
+        clearTimeout(timer);
+      });
+      collapse.addEventListener('hidden.bs.collapse', () => {
+        menuOpen = false;
+        // After closing, do a quick idle hide so it doesn’t stick open
+        ping(200);
+      });
     }
+  }
+
+  // ---- Run once DOM is parsed ----
+  function boot() {
+    initHero();
+    initReveal();
+    initShadow();
+    initAutoHideNav(); // may be a no-op if nav not injected yet
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
   } else {
-    // If no hero, just show navbar
-    document.body.classList.add('nav-visible');
+    boot();
   }
-});
 
-
-// --- Show navbar only after user starts scrolling ---
-(function() {
-  function updateNavVisibility() {
-    if (window.scrollY > 10) {
-      document.body.classList.add('nav-visible');
-    } else {
-      document.body.classList.remove('nav-visible');
-    }
-  }
-  document.addEventListener('scroll', updateNavVisibility, { passive: true });
-  document.addEventListener('DOMContentLoaded', updateNavVisibility);
-  window.addEventListener('load', updateNavVisibility);
+  // ---- Run again after partials inject the navbar ----
+  const prev = window.afterPartialLoad;
+  window.afterPartialLoad = function () {
+    try { if (typeof prev === 'function') prev(); } catch (e) { /* ignore */ }
+    // Re-bind only the pieces that depend on the injected nav
+    initShadow();
+    initAutoHideNav();
+  };
 })();
-
-
-// --- Upgrade: no-reflow navbar already handled in CSS; keep visibility flag ---
-
-// --- Carousel duplicator for seamless loop ---
-(function(){
-  const track = document.querySelector('.pt-carousel .track');
-  if(!track) return;
-  const items = Array.from(track.children);
-  items.forEach(n => track.appendChild(n.cloneNode(true))); // duplicate for 200% width
-})();
-
-
-
-// Form hooks
-(function(){
-  const CONTACT_ENDPOINT = window.CONTACT_ENDPOINT || document.querySelector('#contact-form')?.dataset.endpoint || "{{CONTACT_ENDPOINT}}";
-  const NEWSLETTER_ENDPOINT = window.NEWSLETTER_ENDPOINT || document.querySelector('#newsletter-form')?.dataset.endpoint || "{{NEWSLETTER_ENDPOINT}}";
-
-  async function submitJSON(form, endpoint){
-    if(!endpoint || endpoint.startsWith('{{')){ console.warn('No endpoint configured for', form?.id); return false; }
-    const data = Object.fromEntries(new FormData(form).entries());
-    try{
-      const res = await fetch(endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-      if(!res.ok) throw new Error('Network error'); return true;
-    }catch(e){ console.error(e); return false; }
-  }
-
-  const cform = document.getElementById('contact-form');
-  if(cform){
-    cform.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const btn = cform.querySelector('button[type="submit"], button');
-      const status = cform.querySelector('.form-status');
-      if(btn) btn.disabled = true;  // will fix capitalization next
-      if(status) status.textContent = 'Sending...';
-      const ok = await submitJSON(cform, CONTACT_ENDPOINT);
-      if(ok){ if(status) status.textContent = 'Thanks — I’ll be in touch shortly.'; cform.reset(); }
-      else { if(status) status.textContent = 'There was a problem. Please email directly.'; }
-      if(btn) btn.disabled = false;
-    });
-  }
-
-  const nform = document.getElementById('newsletter-form');
-  if(nform){
-    nform.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const btn = nform.querySelector('button[type="submit"], button');
-      const status = nform.querySelector('.form-status');
-      if(btn) btn.disabled = true;
-      if(status) status.textContent = 'Subscribing...';
-      const ok = await submitJSON(nform, NEWSLETTER_ENDPOINT);
-      if(ok){ if(status) status.textContent = 'Subscribed! Welcome.'; nform.reset(); }
-      else { if(status) status.textContent = 'Could not subscribe — please try again.'; }
-      if(btn) btn.disabled = false;
-    });
-  }
-})();
-
-// === Pretty carousel swipe + auto-height ===
-(function(){
-  var id = 'homepageCarouselPretty';
-  function onReady(fn){ if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
-
-  onReady(function(){
-    var el = document.getElementById(id);
-    if(!el) return;
-
-    // Swipe support
-    var startX = 0, deltaX = 0, active = false;
-    el.addEventListener('touchstart', function(e){ active = true; startX = e.touches[0].clientX; }, {passive:true});
-    el.addEventListener('touchmove', function(e){ if(!active) return; deltaX = e.touches[0].clientX - startX; }, {passive:true});
-    el.addEventListener('touchend', function(e){
-      if(!active) return;
-      if(Math.abs(deltaX) > 40){
-        var dir = deltaX > 0 ? 'prev' : 'next';
-        var carousel = bootstrap.Carousel.getOrCreateInstance(el);
-        carousel[dir]();
-      }
-      active = false; startX = 0; deltaX = 0;
-    }, {passive:true});
-  });
-})();
-// === End pretty carousel helpers ===
-
-
-
-// === Endorsements carousel controls ===
-(function(){
-  function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
-  ready(function(){
-    var track = document.querySelector('#endorsementsCarousel .endorsements-track');
-    if(!track) return;
-    var prev = document.querySelector('.endorsements-btn.prev');
-    var next = document.querySelector('.endorsements-btn.next');
-
-    function scrollByCards(dir){
-      var card = track.querySelector('.endorsement-card');
-      if(!card) return;
-      var gap = parseFloat(getComputedStyle(track).columnGap||getComputedStyle(track).gap)||16;
-      var amount = card.getBoundingClientRect().width + gap;
-      track.scrollBy({ left: dir * amount, behavior:'smooth' });
-    }
-    prev && prev.addEventListener('click', function(){ scrollByCards(-1); });
-    next && next.addEventListener('click', function(){ scrollByCards(1); });
-
-    // Basic touch-swipe for the section
-    var startX=0, dx=0, active=false;
-    track.addEventListener('touchstart', function(e){ active=true; startX=e.touches[0].clientX; }, {passive:true});
-    track.addEventListener('touchmove', function(e){ if(!active) return; dx=e.touches[0].clientX - startX; }, {passive:true});
-    track.addEventListener('touchend', function(){ if(!active) return; if(Math.abs(dx)>40) scrollByCards(dx>0?-1:1); active=false; dx=0; }, {passive:true});
-  });
-})();
-
-document.addEventListener("DOMContentLoaded", function() {
-  var formContainer = document.getElementById("hs-form-virality-container");
-  if (formContainer) {
-    formContainer.style.display = "none";   // fully hides it
-    // OR: formContainer.style.visibility = "hidden"; // keeps space but hides content
-  }
-});
-

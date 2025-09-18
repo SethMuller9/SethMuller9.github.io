@@ -47,16 +47,7 @@
 /* Kill common utility conflicts inside footer */
 .site-footer [class*="text-"], .site-footer .text-muted, .site-footer .text-secondary{ color: var(--secondary-color) !important; }
 .site-footer .bg-light{ background: var(--primary-color) !important; }
-.navbar.fixed-top{
-  transition: background-color 900ms ease, box-shadow 900ms ease, opacity 900ms ease, transform 900ms ease;
-  background: transparent;
-  opacity: 0;
-}
-body.nav-visible .navbar.fixed-top{
-  background: linear-gradient(180deg, #104239 0%, rgba(16,66,57,0.96) 70%, rgba(16,66,57,0.88) 100%);
-  box-shadow: 0 8px 24px rgba(0,0,0,.18);
-  opacity: 1;
-}
+
 .navbar .nav-link{ color:#E8E4D8; transition: color .25s ease, text-shadow .25s ease, transform .2s ease; }
 .navbar .nav-link:hover,.navbar .nav-link:focus{ color:#fff; text-shadow:0 1px 8px rgba(255,255,255,.25); transform:translateY(-1px); }
 .navbar .navbar-brand{ color:#E8E4D8 !important; }
@@ -95,8 +86,8 @@ body.nav-visible .navbar.fixed-top{
 
 
 /* Navbar improvements */ 
-.navbar.fixed-top{ transition: background-color 900ms ease, box-shadow 900ms ease, opacity 900ms ease, transform 900ms ease; background: transparent; opacity: 0; }
-body.nav-visible .navbar.fixed-top{ background: linear-gradient(180deg, #104239 0%, rgba(16,66,57,0.96) 70%, rgba(16,66,57,0.88) 100%); box-shadow: 0 8px 24px rgba(0,0,0,.18); opacity: 1; }
+
+
 .navbar .nav-link{ color:#E8E4D8; transition: color .25s ease, text-shadow .25s ease, transform .2s ease; }
 .navbar .nav-link:hover,.navbar .nav-link:focus{ color:#fff; text-shadow:0 1px 8px rgba(255,255,255,.25); transform: translateY(-1px); }
 .navbar .navbar-brand{ color:#E8E4D8 !important; }
@@ -354,29 +345,13 @@ footer .newsletter button:hover, .footer-newsletter button:hover,
     left: -2px;
 }
 
-/* === Auto-hide navbar (slide fully off-screen + fade) === */
-.auto-hide-navbar{
-  transition: opacity 0.3s ease-in, transform 0.3s ease-in; /* fade-in fast */
-  transform: translate3d(0, 0, 0);
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-}
-.auto-hide-navbar.is-hidden{
-  opacity: 0;
-  transform: translate3d(0, -110%, 0); /* slide completely out of view */
-  pointer-events: none;
-  transition: opacity .6s ease-out, transform .6s ease-out; /* fade-out slow */
-}
-@media (prefers-reduced-motion: reduce){
-  .auto-hide-navbar{
-    transition: none !important;
-    transform: none !important;
-  }
-}
-/* === End auto-hide navbar (slide fully) === */
+
 
 .page-hero h1{
   color: #E8E4D8;
+}
+.page-hero{
+  padding: 175px 0 48px !important;
 }
 
 /* Footer social icons: consistent size, alignment, and color */
@@ -542,35 +517,6 @@ footer .newsletter button:hover, .footer-newsletter button:hover,
 
 
 
-/* === Navbar hover lock overrides === */
-.auto-hide-navbar.hovering,
-.auto-hide-navbar:hover {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-.auto-hide-navbar.hovering.is-hidden,
-.auto-hide-navbar.hovering.hidden {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-
-
-
-/* === Navbar hover/focus visibility guard === */
-.auto-hide-navbar.hovering,
-.auto-hide-navbar:hover {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-.auto-hide-navbar.hovering.is-hidden,
-.auto-hide-navbar.hovering.hidden {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
 
 
 
@@ -698,20 +644,27 @@ h2.accordion-header{
   background-repeat: no-repeat;
   position: relative;
   color: white; /* text color over image */
-  background-image: url('../images/hero_banner_1024.jpg');
+  background-image: url('../images/hero_banner_1920.jpg');
 }
 
 /* Larger mobile */
 @media (min-width: 480px) {
   #hero {
-    background-image: url('../images/hero_banner_1024.jpg');
+    background-image: url('../images/hero_banner_1440.jpg');
   }
 }
 
 /* Tablet */
 @media (min-width: 768px) {
   #hero {
-    background-image: url('../images/hero_banner_1024.jpg');
+    background-image: url('../images/hero_banner_1440.jpg');
+  }
+}
+
+/* Tablet */
+@media (min-width: 1024px) {
+  #hero {
+    background-image: url('../images/hero_banner_1920.jpg');
   }
 }
 
@@ -835,4 +788,57 @@ h2.accordion-header{
     margin-bottom: 10px;
     margin-top:5px;
     display: inline-block;
+}
+
+
+/* === AUTO-HIDE NAVBAR (clean, single model) === */
+
+/* 1) Base: keep the nav itself transparent — no gradient here */
+.auto-hide-navbar{
+  opacity: 0;
+  transform: translate3d(0, -110%, 0);
+  pointer-events: none;
+  background: transparent;
+  will-change: opacity, transform, box-shadow;
+  transition:
+    opacity 900ms ease,
+    transform 900ms ease,
+    box-shadow 900ms ease;
+}
+
+/* 2) SHOW state: still no background here; only shadow + visibility */
+.auto-hide-navbar.is-shown{
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+  /* REMOVE any background: linear-gradient(...) from this rule */
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+
+/* Optional: extra shadow when scrolled */
+.navbar.scrolled.is-shown { box-shadow: 0 10px 28px rgba(0,0,0,.22); }
+
+/* 3) Gradient overlay that we fade in/out smoothly */
+.auto-hide-navbar::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, #104239 0%,
+                               rgba(16,66,57,0.96) 70%,
+                               rgba(16,66,57,0.88) 100%);
+  opacity: 0;                            /* start invisible */
+  transition: opacity 900ms ease;        /* <-- smooth color fade */
+  z-index: 0;                            /* sits under the content */
+}
+
+/* 4) Turn the gradient on by fading its opacity */
+.auto-hide-navbar.is-shown::before{
+  opacity: 1;
+}
+
+/* Ensure nav content is above the overlay */
+.auto-hide-navbar > * {
+  position: relative;
+  z-index: 1;
 }
