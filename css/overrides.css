@@ -842,3 +842,36 @@ h2.accordion-header{
   position: relative;
   z-index: 1;
 }
+
+.special{
+    background-color: #D9A441;
+    color: #2E4D3E !important;
+    border-radius: 7px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    background: linear-gradient(135deg, #D9A441, #E8E4D8);
+}
+
+.special:hover{
+    background-color: #c29139;
+    color: #fff !important;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+}
+.special:after{
+    content: "";
+    position: absolute;
+    left: 16%;
+    right: 16%;
+    bottom: .4rem;
+    height: 2px;
+    background: var(--secondary-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 240ms ease;
+    opacity: .85;
+}

@@ -153,7 +153,36 @@ img{max-width:100%;height:auto;display:block}
 }
 .page-hero .container, .page-hero h1{ position:relative; z-index:1; }
 /* Compact spacing between sections already handled; keep */
-</style></head>
+</style>
+<!-- HEAD: add this meta description -->
+<meta name="description"
+      content="New Pathways Psychotherapy offers integrative therapy in Denver & Lakewood, Colorado—combining CBT, ACT, EMDR, IFS, DBT, and other evidence-based modalities for anxiety, depression, trauma, and relationship concerns.">
+
+<!-- HEAD: add structured data to help Google understand the services -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "New Pathways Psychotherapy",
+  "url": "https://www.newpathwayspsychotherapy.co",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "13701 W. Jewell Ave., Suite 200-19",
+    "addressLocality": "Lakewood",
+    "addressRegion": "CO",
+    "postalCode": "80228",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Denver", "Lakewood", "Colorado Front Range"],
+  "medicalSpecialty": "PsychologicalCare",
+  "description": "Integrative psychotherapy combining CBT, ACT, EMDR, IFS, DBT, and other evidence-based modalities.",
+  "sameAs": [
+    "https://www.psychologytoday.com/",
+    "https://www.linkedin.com/"
+  ]
+}
+</script>
+</head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div data-include="partials/navbar.html"></div>
@@ -164,21 +193,259 @@ img{max-width:100%;height:auto;display:block}
 </header>
 <main class="content-wrap" id="main">
 <div class="container">
-<section class="page-section">
-<p class="lead">An integrative approach means I pull from several evidence‑based modalities—<strong>IFS</strong>, person‑centered, <strong>DBT</strong> skills, and somatic &amp; existential work—so your care fits <em>you</em>, not the other way around.</p>
+<!-- BODY: section with local SEO + concise descriptors (long-tail phrases) -->
+<section class="page-section" id="integrated-modalities" aria-labelledby="modalities-heading">
+<!-- prettier, organized modalities block -->
+<style>
+  /* Compact, readable list styling */
+  .modality-list { list-style: none; padding-left: 0; margin: 0; }
+  .modality-list li {
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #fafafa;
+    border: 1px solid rgba(0,0,0,.06);
+    margin: 6px 0;
+  }
+  .modality-list li a { text-decoration: none; }
+  .modality-list li strong { font-weight: 600; }
+  .modality-desc { display: block; font-size: .95rem; color: #333; margin-top: 4px; }
+  .modality-filter {
+    display: flex; gap: 8px; align-items: center; margin: 1rem 0 1.25rem;
+  }
+  .modality-filter input {
+    width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(0,0,0,.15);
+  }
+  .badge-cat {
+    display: inline-block; font-size: .75rem; padding: 4px 8px; background:#E8E4D8; color:#2E4D3E;
+    border-radius: 999px; margin-left: 6px; vertical-align: middle;
+  }
+  /* Subtle accordion polish */
+  .accordion-button { font-weight: 600; }
+  .accordion-button:focus { box-shadow: none; }
+</style>
+
+<div>
+  <p class="lead">I pull from a broad array of therapeutic modalities, rather than depending on one singular approach. By designing a treatment plan that unites therapies specifically well-suited to your needs, I can make sure your care fits <em>you</em>—not the other way around. 
+  </p>
+<br>
+  <!-- Quick filter -->
+  <div class="modality-filter">
+    <input id="modalitySearch" type="search" placeholder="Filter modalities (e.g., trauma, mindfulness, EMDR, anxiety)…" aria-label="Filter therapy modalities">
+  </div>
+
+  <!-- Grouped by category in a Bootstrap accordion -->
+  <div class="accordion" id="modalitiesAccordion">
+
+    <!-- Cognitive & Behavioral -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="cbtHead">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cbtBody" aria-expanded="true" aria-controls="cbtBody">
+          Cognitive &amp; Behavioral <span class="badge-cat">skills &amp; structure</span>
+        </button>
+      </h2>
+      <div id="cbtBody" class="accordion-collapse collapse show" aria-labelledby="cbtHead" data-bs-parent="#modalitiesAccordion">
+        <div class="accordion-body">
+          <ul class="modality-list">
+            <li data-keywords="cbt cognitive behavioral anxiety depression skills evidence-based">
+              <strong><a href="https://www.apa.org/ptsd-guideline/patients-and-families/cognitive-behavioral" target="_blank" rel="noopener">Cognitive Behavioral Therapy (CBT)</a></strong>
+              <span class="modality-desc">Skills-focused treatment to change unhelpful thoughts/behaviors for anxiety and depression.</span>
+            </li>
+            <li data-keywords="act acceptance commitment mindfulness values chronic pain anxiety depression">
+              <strong><a href="https://contextualscience.org/act" target="_blank" rel="noopener">Acceptance &amp; Commitment Therapy (ACT)</a></strong>
+              <span class="modality-desc">Mindfulness + values-based action for anxiety, chronic pain, and life transitions.</span>
+            </li>
+            <li data-keywords="dbt dialectical emotion regulation distress tolerance interpersonal skills">
+              <strong><a href="https://behavioraltech.org/resources/faqs/dialectical-behavior-therapy-dbt/" target="_blank" rel="noopener">Dialectical Behavior Therapy (DBT)</a></strong>
+              <span class="modality-desc">Emotion regulation, distress tolerance, and interpersonal effectiveness.</span>
+            </li>
+            <li data-keywords="exposure prolonged exposure pe phobias ocd ptsd">
+              <strong><a href="https://www.apa.org/ptsd-guideline/treatments/prolonged-exposure" target="_blank" rel="noopener">Exposure Therapy / Prolonged Exposure</a></strong>
+              <span class="modality-desc">Gradual exposure for phobias, OCD, and PTSD triggers.</span>
+            </li>
+            <li data-keywords="experiential therapy action-oriented flexibility">
+              <strong><a href="https://mywellbeing.com/therapy-101/what-is-experiential-therapy" target="_blank" rel="noopener">Experiential Therapy</a></strong>
+              <span class="modality-desc">Action-oriented methods that build emotional flexibility.</span>
+            </li>
+            <li data-keywords="humanistic strengths-based growth person-centered">
+              <strong><a href="https://www.goodtherapy.org/learn-about-therapy/types/humanistic-psychology" target="_blank" rel="noopener">Humanistic Therapy</a></strong>
+              <span class="modality-desc">Growth-oriented, strengths-based counseling.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trauma-Focused & Somatic -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="traumaHead">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#traumaBody" aria-expanded="false" aria-controls="traumaBody">
+          Trauma-Focused &amp; Somatic <span class="badge-cat">nervous system &amp; processing</span>
+        </button>
+      </h2>
+      <div id="traumaBody" class="accordion-collapse collapse" aria-labelledby="traumaHead" data-bs-parent="#modalitiesAccordion">
+        <div class="accordion-body">
+          <ul class="modality-list">
+            <li data-keywords="emdr trauma ptsd accidents medical trauma reprocessing">
+              <strong><a href="https://www.emdria.org/about-emdr-therapy/" target="_blank" rel="noopener">EMDR Informed Therapy </a></strong>(Eye Movement Desensitization & Reprocessing)
+              <span class="modality-desc">Trauma processing for PTSD, accidents, medical trauma, and complex stress.</span>
+            </li>
+            <li data-keywords="somatic experiencing se body-based trauma nervous system regulation">
+              <strong><a href="https://traumahealing.org/global-impact/" target="_blank" rel="noopener">Somatic Experiencing (SE)</a></strong>
+              <span class="modality-desc">Body-based trauma treatment for nervous-system regulation.</span>
+            </li>
+            <li data-keywords="ifs internal family systems parts trauma shame inner conflict">
+              <strong><a href="https://ifs-institute.com/" target="_blank" rel="noopener">Internal Family Systems (IFS)</a></strong>
+              <span class="modality-desc">Parts-based healing for trauma, shame, and inner conflict.</span>
+            </li>
+            <li data-keywords="interpersonal neurobiology brain development relationships regulation">
+              <strong><a href="https://www.drdansiegel.com/about/interpersonal_neurobiology/" target="_blank" rel="noopener">Interpersonal Neurobiology</a></strong>
+              <span class="modality-desc">Brain-informed therapy to improve regulation and relationships.</span>
+            </li>
+            <li data-keywords="aedp accelerated experiential core emotions">
+              <strong><a href="https://aedpinstitute.org/" target="_blank" rel="noopener">Accelerated Experiential Dynamic Psychotherapy (AEDP)</a></strong>
+              <span class="modality-desc">Accelerated experiential work to process core emotions safely.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mindfulness & Compassion -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="mindHead">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mindBody" aria-expanded="false" aria-controls="mindBody">
+          Mindfulness &amp; Compassion <span class="badge-cat">present-focused</span>
+        </button>
+      </h2>
+      <div id="mindBody" class="accordion-collapse collapse" aria-labelledby="mindHead" data-bs-parent="#modalitiesAccordion">
+        <div class="accordion-body">
+          <ul class="modality-list">
+            <li data-keywords="mbsr mindfulness stress reduction pain relapse prevention">
+              <strong><a href="https://www.umassmed.edu/cfm/mindfulness-based-stress-reduction/" target="_blank" rel="noopener">Mindfulness-Based Stress Reduction (MBSR)</a></strong>
+              <span class="modality-desc">Mindfulness practices for stress, pain, and relapse prevention.</span>
+            </li>
+            <li data-keywords="msc mindful self-compassion shame resilience">
+              <strong><a href="https://self-compassion.org/" target="_blank" rel="noopener">Mindful Self-Compassion (MSC)</a></strong>
+              <span class="modality-desc">Self-kindness to reduce shame and strengthen resilience.</span>
+            </li>
+            <li data-keywords="strengths-based positive psychology capacity goals">
+              <strong><a href="https://positivepsychology.com/strength-based-approach/" target="_blank" rel="noopener">Strengths-Based Approaches</a></strong>
+              <span class="modality-desc">Leverage existing capacities to meet goals.</span>
+            </li>
+            <li data-keywords="ecotherapy nature-based mood connection meaning">
+              <strong><a href="https://www.apa.org/monitor/2010/10/nature" target="_blank" rel="noopener">Eco-Therapy / Nature-Based Therapy</a></strong>
+              <span class="modality-desc">Nature-assisted practices for mood, meaning, and connection.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Depth, Narrative & Existential -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="depthHead">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#depthBody" aria-expanded="false" aria-controls="depthBody">
+          Depth, Narrative &amp; Existential <span class="badge-cat">meaning &amp; insight</span>
+        </button>
+      </h2>
+      <div id="depthBody" class="accordion-collapse collapse" aria-labelledby="depthHead" data-bs-parent="#modalitiesAccordion">
+        <div class="accordion-body">
+          <ul class="modality-list">
+            <li data-keywords="psychodynamic insight patterns early relationships">
+              <strong><a href="https://www.apa.org/education-career/guide/subfield/psychodynamic" target="_blank" rel="noopener">Psychodynamic Therapy</a></strong>
+              <span class="modality-desc">Insight into patterns shaped by early experiences and relationships.</span>
+            </li>
+            <li data-keywords="narrative therapy re-author identity behavior">
+              <strong><a href="https://dulwichcentre.com.au/what-is-narrative-therapy/" target="_blank" rel="noopener">Narrative Therapy</a></strong>
+              <span class="modality-desc">Re-authoring stories that shape identity and behavior.</span>
+            </li>
+            <li data-keywords="jungian depth symbols dreams analytical psychology">
+              <strong><a href="https://www.iaap.org/" target="_blank" rel="noopener">Jungian Psychotherapy</a></strong>
+              <span class="modality-desc">Depth work with symbols, dreams, and meaning-making.</span>
+            </li>
+            <li data-keywords="existential purpose freedom responsibility meaning life transitions">
+              <strong><a href="https://www.existentialanalysis.org.uk/about/existential-therapy/" target="_blank" rel="noopener">Existential Psychotherapy</a></strong>
+              <span class="modality-desc">Purpose, freedom, and responsibility during major life changes.</span>
+            </li>
+            <li data-keywords="rogerian person-centered empathy unconditional positive regard authenticity">
+              <strong><a href="https://www.goodtherapy.org/learn-about-therapy/types/person-centered-therapy" target="_blank" rel="noopener">Person-Centered (Rogerian) Therapy</a></strong>
+              <span class="modality-desc">Empathy, unconditional positive regard, and authenticity.</span>
+            </li>
+            <li data-keywords="gestalt present-moment unfinished business awareness">
+              <strong><a href="https://gestalttherapy.org/what-is-gestalt-therapy/" target="_blank" rel="noopener">Gestalt Psychotherapy</a></strong>
+              <span class="modality-desc">Present-moment awareness and integration of “unfinished business.”</span>
+            </li>
+            <li data-keywords="feminist therapy empowerment culturally responsive">
+              <strong><a href="https://www.goodtherapy.org/learn-about-therapy/types/feminist-therapy" target="_blank" rel="noopener">Feminist Therapy</a></strong>
+              <span class="modality-desc">Empowerment-based, culturally responsive care.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Relational & Systems -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="systemsHead">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#systemsBody" aria-expanded="false" aria-controls="systemsBody">
+          Relational &amp; Systems <span class="badge-cat">couples &amp; family</span>
+        </button>
+      </h2>
+      <div id="systemsBody" class="accordion-collapse collapse" aria-labelledby="systemsHead" data-bs-parent="#modalitiesAccordion">
+        <div class="accordion-body">
+          <ul class="modality-list">
+            <li data-keywords="attachment abft family adolescents bonds trust safety">
+              <strong><a href="https://www.abfttraining.org/" target="_blank" rel="noopener">Attachment-Based Family Therapy (ABFT)</a></strong>
+              <span class="modality-desc">Strengthen bonds, trust, and emotional safety.</span>
+            </li>
+            <li data-keywords="eft emotion-focused couples relationships cycles">
+              <strong><a href="https://iceeft.com/what-is-eft/" target="_blank" rel="noopener">Emotion-Focused Therapy (EFT)</a></strong>
+              <span class="modality-desc">Transform emotional cycles in individuals and relationships.</span>
+            </li>
+            <li data-keywords="bowen family systems differentiation boundaries multigenerational patterns">
+              <strong><a href="https://thebowencenter.org/theory/" target="_blank" rel="noopener">Bowenian Family Systems</a></strong>
+              <span class="modality-desc">Clarify roles, boundaries, and patterns across generations.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // simple client-side filter for the full list (across all accordion panels)
+  (function(){
+    const input = document.getElementById('modalitySearch');
+    if(!input) return;
+    const items = document.querySelectorAll('.modality-list li');
+
+    input.addEventListener('input', function(){
+      const q = this.value.trim().toLowerCase();
+      items.forEach(li => {
+        const text = li.textContent.toLowerCase() + ' ' + (li.dataset.keywords || '');
+        li.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+  })();
+</script>
+
 </section>
+
 <section class="page-section">
 <h2>Who this helps</h2>
 <ul class="list-tight">
-<li>High‑achieving or neurodivergent adults who feel stuck in patterns that no longer serve them</li>
 <li>People navigating anxiety, trauma responses, grief, or big transitions</li>
 <li>Clients seeking practical tools <em>and</em> deeper meaning—not one without the other</li>
+<li>High‑achieving or neurodivergent adults who feel stuck in patterns that no longer serve them</li>
 </ul>
 </section>
 <section class="page-section">
 <h2>How sessions work</h2>
 <div class="callout">
-<p><strong>Warm, structured, and collaborative.</strong> We’ll set goals, notice what’s happening in your body, and use targeted methods without losing the human connection that makes therapy work.</p></div>
+<p><strong>Warm, structured, and collaborative.</strong> We’ll set goals, notice what’s happening in your body, and use targeted methods without losing the human connection that makes therapy work.</p>
+</div>
 <br>
 <ul>
 <li><strong>IFS (Internal Family Systems):</strong> Befriend protective parts and heal wounded parts to reduce reactivity and shame.</li>
@@ -198,7 +465,7 @@ img{max-width:100%;height:auto;display:block}
 <section class="page-section">
 <h2>Start here</h2>
 <br>
-<p><a class="btn btn-primary-custom" href="/contact.html#contact-us">Request a Consult</a></p>
+<p><a class="btn-secondary-custom" href="/groups.html">Learn About Group Therapy</a>&nbsp; or &nbsp;<a class="btn btn-primary-custom special" href="/contact.html#contact-us">Request an Individual Consult</a></p>
 </section>
 </div>
 </main>
