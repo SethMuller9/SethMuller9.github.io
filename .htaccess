@@ -1,0 +1,23 @@
+
+# Enable compression
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+
+# Far-future expires for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 7 days"
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Cache-Control headers
+<FilesMatch "\.(js|css|png|jpg|jpeg|gif|svg|webp|woff2)$">
+  Header set Cache-Control "public, max-age=2592000, immutable"
+</FilesMatch>
+
+# Gzip/Brotli might be enabled server-side; this is a safe default.
