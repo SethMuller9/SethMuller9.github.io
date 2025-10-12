@@ -175,7 +175,7 @@
     boot();
   }
 
-  
+
 
   // ---- Run again after partials inject the navbar ----
   const prev = window.afterPartialLoad;
@@ -185,4 +185,6 @@
     initShadow();
     initAutoHideNav();
   };
+
+
 })();
