@@ -175,6 +175,8 @@
     boot();
   }
 
+  
+
   // ---- Run again after partials inject the navbar ----
   const prev = window.afterPartialLoad;
   window.afterPartialLoad = function () {
