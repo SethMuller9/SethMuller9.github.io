@@ -81,8 +81,32 @@
 <a href="/accessibility.html">Accessibility</a>
 <span class="dot">•</span>
 <!-- Professional verification provided by Psychology Today -->
+<!-- Anchor stays in the footer -->
 <a href="https://www.psychologytoday.com/profile/1302936" class="sx-verified-seal"></a>
-<script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="13" data-id="1302936" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy8xMy9wcm9maWxlLzEzMDI5MzY/Y2FsbGJhY2s9c3hjYWxsYmFjaw=="></script>
+
+<script>
+  (function() {
+    var allowed = ['newpathwayspsychotherapy.co','www.newpathwayspsychotherapy.co'];
+    if (!allowed.includes(location.hostname)) return;
+
+    function loadSeal() {
+      var s = document.createElement('script');
+      s.src = 'https://member.psychologytoday.com/verified-seal.js';
+      s.type = 'text/javascript';
+      s.setAttribute('data-badge', '13');
+      s.setAttribute('data-id', '1302936');
+      s.setAttribute('data-code', 'aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy8xMy9wcm9maWxlLzEzMDI5MzY/Y2FsbGJhY2s9c3hjYWxsYmFjaw==');
+      document.body.appendChild(s);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadSeal);
+    } else {
+      loadSeal();
+    }
+  })();
+</script>
+
 <!-- End Verification -->
 </div>
 <a aria-label="Back to top" class="to-top brand-icon" href="#top">
