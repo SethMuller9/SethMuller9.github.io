@@ -7,7 +7,7 @@
   --background-light:#FFFFFF;
 }
 .site-footer{ background: var(--primary-color) !important; color: var(--secondary-color) !important; border-top:0; }
-.site-footer a{ color: var(--secondary-color) !important; text-decoration:none; }
+.site-footer a{ color: var(--secondary-color); text-decoration:none; }
 .site-footer a:hover{ color: var(--background-light) !important; }
 .footer-logo{ width:84px; height:auto; display:block; filter: drop-shadow(0 6px 18px rgba(0,0,0,.25)); }
 @media (min-width:900px){ .footer-logo{ width:100px; } }
