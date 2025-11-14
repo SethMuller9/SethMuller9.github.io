@@ -3,9 +3,8 @@
    Includes: hero/banner, fade-in, typography, buttons
 ========================================================== */
 @font-face {
-  font-family: "Helvetica Neue Light";
-  src: url("../assets/HelveticaNeue/HelveticaNeueLT-Light.woff2") format("woff2"),
-       url("../assets/HelveticaNeue/HelveticaNeueLT-Light.woff") format("woff");
+  font-family: "Helvetica Neue";
+  src: url('https://fonts.cdnfonts.com/css/helvetica-neue-5');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -24,7 +23,7 @@ $background-light: #FFFFFF;
    Global Styles 
 ----------------------- */
 body {
-  font-family: 'Helvetica Neue Light', sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
   color: $text-primary;
   background-color: $background-light;
 }
