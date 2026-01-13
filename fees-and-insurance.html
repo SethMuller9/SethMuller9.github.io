@@ -86,6 +86,16 @@ img{max-width:100%;height:auto;display:block}
   letter-spacing: .4px;
   text-shadow: 0 2px 6px rgba(0,0,0,.35);
 }
+.calc-container{
+  max-width: 550px;
+  width: 100%;
+  border-radius: 10px;
+  border: 4px solid #104239;
+  padding: 15px;
+  margin: 30px 20px 20px 0px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
+  background: #E8E4D8;
+}
 /* === End hero banner enhancement === */
 
 </style>
@@ -123,19 +133,205 @@ ul,ol{margin:0 0 .75rem 1.25rem}
 <h2>Private Pay Rates</h2>
 <table class="fee-table">
 <thead>
-<tr><th>Service</th><th>Standard Fee</th><th>Notes</th></tr>
+<tr><th>Service</th><th>Session Rate</th><th>Notes</th></tr>
 </thead>
 <tbody>
-<tr><td>Intake / First Session (55–60 min)</td><td>$140</td><td>History, goals, and initial plan</td></tr>
-<tr><td>Individual Session (45–50 min)</td><td>$140</td><td>Standard psychotherapy hour</td></tr>
-<tr><td>Extended Session (75–80 min)</td><td>$210</td><td>Optional, when clinically appropriate</td></tr>
+<tr><td>Individual Session (50 min)</td><td>$65 - $140</td><td>Standard psychotherapy hour</td></tr>
+<tr><td>Group Session (90 min)</td><td>$20 - $85</td><td>Standard group psychotherapy rate (6-8 members)</td></tr>
 </tbody>
 </table>
-<p class="note">Payment is due at the time of service. <strong>HSA/FSA</strong> cards are typically accepted for eligible services.</p>
+<p class="note" style="margin: 7px;"><i>*Payment is due at the time of service. <strong>HSA/FSA</strong> cards are typically accepted for eligible services.</i></p>
 </section>
 <section class="page-section">
 <h2>Sliding Scale</h2>
-<p>To expand access, I offer a limited number of <strong>sliding-scale</strong> spots between <strong>$65 and $140</strong> per session. Sliding-scale placement is based on <strong>household size</strong> and <strong>annual income</strong> with reference to the Federal Poverty Guidelines (FPG). A simple income attestation (and, if needed, brief documentation) may be requested.</p>
+<p>To expand access, I offer a limited number of <strong>sliding-scale</strong> spots between <strong>$65 and $140</strong> per session.</p>
+
+<div class="calc-container">
+  <!-- Sliding Scale Calculator (drop-in) -->
+  <h4 id="sliding-scale-calculator">Session Rate Calculator</h4>
+  <p>
+    Enter your <strong>household size</strong> and <strong>annual household income</strong> to see an
+    <em>estimated</em> session rate based on the Federal Poverty Guidelines (FPG).
+  </p>
+
+  <form class="fee-calc" id="feeCalcForm" novalidate>
+    <div class="fee-calc__row">
+      <label for="householdSize"><strong>Household size</strong></label>
+      <input
+        type="number"
+        id="householdSize"
+        name="householdSize"
+        inputmode="numeric"
+        min="1"
+        step="1"
+        value="1"
+        required
+      />
+    </div>
+
+    <div class="fee-calc__row">
+      <label for="annualIncome"><strong>Annual household income (USD)</strong></label>
+      <input
+        type="number"
+        id="annualIncome"
+        name="annualIncome"
+        inputmode="decimal"
+        min="0"
+        step="100"
+        placeholder="e.g., 65000"
+        required
+      />
+    </div>
+
+    <!-- Hardship override -->
+    <div class="fee-calc__row" style="gap:.25rem;">
+      <label style="display:flex; align-items:center; gap:.5rem; font-weight:600;">
+        <input type="checkbox" id="hardshipOverride" />
+        I’m experiencing significant hardship (medical, housing, sudden loss of income, etc.)
+      </label>
+      <small class="muted">
+        If checked, this will show a “contact me” message instead of an estimated session rate.
+      </small>
+    </div>
+
+    <button type="submit" class="btn btn-primary-custom">Calculate My Rate</button>
+
+    <div
+      id="feeCalcResult"
+      class="fee-calc__result"
+      role="status"
+      aria-live="polite"
+      style="display:none;"
+    ></div>
+  </form>
+  <br>
+<style>
+  /* Minimal styling — adjust to match your theme */
+  .fee-calc { max-width: 680px; }
+  .fee-calc__row { margin: 0 0 1rem; display: grid; gap: .4rem; }
+  .fee-calc input[type="number"]{
+    padding: .6rem .7rem;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 12px;
+    width: 100%;
+  }
+  .fee-calc input[type="checkbox"]{ transform: translateY(1px); }
+  .fee-calc__result {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    background: #fff;
+  }
+  .fee-calc__result strong { font-size: 1.1rem; }
+</style>
+
+<script>
+  // --- Federal Poverty Guidelines (FPG), contiguous U.S. ---
+  // UPDATE THESE NUMBERS EACH YEAR to the new HHS FPG values:
+  // base = household size 1, add = amount to add per additional person.
+  const FPG_2025_CONTIGUOUS = { base: 15560, add: 5480 };
+
+  // Map %FPG bands to your fees
+  function feeFromPctFpg(pct) {
+    if (pct < 200) return 65;
+    if (pct >= 200 && pct < 250) return 85;
+    if (pct >= 250 && pct < 300) return 105;
+    if (pct >= 300 && pct < 400) return 125;
+    return 140;
+  }
+
+  function formatUSD(n) {
+    return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n);
+  }
+
+  function computeFpgThreshold(householdSize) {
+    const size = Math.max(1, Math.floor(householdSize));
+    return FPG_2025_CONTIGUOUS.base + FPG_2025_CONTIGUIOUS_ADD() * (size - 1);
+  }
+
+  // Small helper so you only change numbers in one place above
+  function FPG_2025_CONTIGUIOUS_ADD() {
+    return FPG_2025_CONTIGUOUS.add;
+  }
+
+  function clamp(n, min, max) {
+    return Math.min(max, Math.max(min, n));
+  }
+
+  document.getElementById("feeCalcForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const sizeEl = document.getElementById("householdSize");
+    const incomeEl = document.getElementById("annualIncome");
+    const hardshipEl = document.getElementById("hardshipOverride");
+    const resultEl = document.getElementById("feeCalcResult");
+
+    const householdSize = Number(sizeEl.value);
+    const annualIncome = Number(incomeEl.value);
+
+    // Basic validation
+    if (!Number.isFinite(householdSize) || householdSize < 1) {
+      resultEl.style.display = "block";
+      resultEl.textContent = "Please enter a valid household size (1 or more).";
+      return;
+    }
+    if (!Number.isFinite(annualIncome) || annualIncome < 0) {
+      resultEl.style.display = "block";
+      resultEl.textContent = "Please enter a valid annual income (0 or more).";
+      return;
+    }
+
+    // Hardship override (shows message instead of a rate)
+    if (hardshipEl.checked) {
+      resultEl.style.display = "block";
+      resultEl.innerHTML = `
+        <strong>Thanks for sharing that.</strong>
+        <div style="margin-top:.5rem;">
+          If you’re experiencing significant hardship, please reach out and we’ll discuss options together.
+        </div>
+        <div style="margin-top:1rem;">
+          <a class="btn btn-primary-custom" href="/contact.html#contact-us">Contact Me</a>
+        </div>
+      `;
+      return;
+    }
+
+    const fpgThreshold =
+      FPG_2025_CONTIGUOUS.base + FPG_2025_CONTIGUOUS.add * (Math.floor(householdSize) - 1);
+
+    // Percent of FPG: income / guideline * 100
+    const pct = (annualIncome / fpgThreshold) * 100;
+    const pctRounded = Math.round(pct);
+
+    const fee = feeFromPctFpg(pct);
+    const band =
+      pct < 200 ? "< 200% FPG" :
+      pct < 250 ? "200–250% FPG" :
+      pct < 300 ? "250–300% FPG" :
+      pct < 400 ? "300–400% FPG" :
+      "> 400% FPG";
+
+    resultEl.style.display = "block";
+    resultEl.innerHTML = `
+      <div>
+        <strong>Estimated session rate: ${formatUSD(fee)}</strong>
+        <div style="margin-top:.35rem;">
+          Based on: <span class="pill">${band}</span>
+        </div>
+        <div class="muted" style="margin-top:.5rem;">
+          Household size: <strong>${Math.floor(householdSize)}</strong> •
+          Income: <strong>${formatUSD(annualIncome)}</strong> •
+          FPG (2025, contiguous U.S.): <strong>${formatUSD(fpgThreshold)}</strong> •
+          Your estimate: <strong>${clamp(pctRounded, 0, 9999)}% FPG</strong>
+        </div>
+      </div>
+    `;
+  });
+</script>
+</div>
+<br><br>
 <table class="fee-table">
 <thead>
 <tr><th>Income Guide (by % FPG)</th><th>Typical Fee</th><th>Examples</th></tr>
@@ -148,7 +344,7 @@ ul,ol{margin:0 0 .75rem 1.25rem}
 <tr><td>&gt; 400% FPG</td><td>$140</td><td>Standard rate</td></tr>
 </tbody>
 </table>
-<p class="note">This table is a guideline, not a guarantee. Availability depends on open reduced-fee spots. We’ll discuss your situation together to determine a fair, sustainable rate.</p>
+<p class="note text-muted" style="margin: 7px;"><i>*This table & calculator are fee guidelines, not a guarantee. Income documentation may be requested. Availability depends on open reduced-fee spots. We’ll discuss your situation together to determine a fair, sustainable rate.</i></p>
 </section>
 <section class="page-section">
 <h2>Out-of-Network &amp; Superbill</h2>
