@@ -12388,6 +12388,8 @@ section {
 #heroContent {
   position: relative;
   z-index: 1; /* keeps text above overlay */
+      padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* Inverse vignette (darkest center → transparent corners) */

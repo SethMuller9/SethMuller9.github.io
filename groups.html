@@ -7,6 +7,39 @@
     *{box-sizing:border-box}
     body{margin:0}
     img{max-width:100%;height:auto;display:block}
+        /* Minimal fallbacks in case your main CSS isn't loaded */
+    .np-bg-green { background-color: #2E4D3E; }
+    .np-text-sand { color: #E8E4D8; }
+    .content-wrap { padding-top: 96px; padding-bottom: 64px; }
+    .page-hero { padding: 96px 0 32px; background: #2E4D3E; color: #E8E4D8; }
+    .page-hero h1 { margin: 0; font-family: 'Playfair Display', serif; letter-spacing: .4px; }
+    .page-section h2 { margin-top: 2rem; }
+    .page-section p { line-height: 1.7; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: static; width: auto; height: auto; padding: 8px 12px; background: #000; color: #fff; }
+    nav a { text-decoration: none; }
+    .nav-link { padding: 8px 12px; display: inline-block; }
+    .nav-link.active { text-decoration: underline; text-underline-offset: 4px; }
+    footer p { margin: .25rem 0; }
+    .muted { opacity: .9; font-size: .95rem; }
+    .callout { padding: 16px; border-left: 4px solid #2E4D3E; background: #f7f7f7; }
+    .list-tight li { margin-bottom: .35rem; }
+    .fee-table { width:100%; border-collapse: collapse; }
+    .fee-table th, .fee-table td { padding: 10px 12px; border-bottom: 1px solid #e5e5e5; }
+    .fee-table th { text-align:left; background:#fafafa; }
+    .tag { display:inline-block; font-size:.85rem; padding:.25rem .5rem; border-radius:4px; background:#eef5f0; color:#2E4D3E; }
+    .note { font-size:.95rem; color:#333; }
+    .calc-container{
+  max-width: 550px;
+  width: 100%;
+  border-radius: 10px;
+  border: 4px solid #104239;
+  padding: 15px;
+  margin: 30px 20px 20px 0px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
+  background: #E8E4D8;
+}
   </style>
   <link rel="preload" as="style" href="css/overrides.css"/>
   <link rel="preload" as="style" href="css/style.css"/>
@@ -43,8 +76,120 @@
   <link href="css/bootstrap.min.css" rel="stylesheet"/>
   <link href="css/style.css" rel="stylesheet"/>
   <link href="css/overrides.css" rel="stylesheet"/>
+</head>
+<body>
 
-  <style>
+<div data-include="partials/navbar.html"></div>
+<header class="page-hero">
+  <div class="container">
+    <h1>Group Psychotherapy</h1>
+  </div>
+</header>
+<main class="content-wrap" id="main">
+  <div class="container">
+        <h2>Humans have a unique capacity to hurt each other, but also heal each other. </h2>
+<br>
+        <p>Research shows that <strong>harm happens in relationships</strong>, but it also consistently shows <strong>healing happens in relationship</strong> also. Group Therapy offers a uniquely powerful space to heal and grow <strong>in connection with others.</strong> We focus on the here-and-now; how you relate, protect, withdraw, and reach for connection in real time.</p>
+    <!-- Therapeutic Factors -->
+    <section class="page-section-cstm">
+      <h2>What makes group work?</h2>
+      <div class="card" style="padding:16px">
+        <ul class="list-tight">
+          <li><strong>Universality:</strong> discovering you are not alone.</li>
+          <li><strong>Instillation of hope:</strong> witnessing others grow encourages your own.</li>
+          <li><strong>Interpersonal learning:</strong> live feedback about impact and intentions.</li>
+          <li><strong>Cohesion & belonging:</strong> a safe “micro-community” for honest risk-taking.</li>
+          <li><strong>Corrective emotional experiences:</strong> new relational outcomes for old templates.</li>
+          <li><strong>Altruism & catharsis:</strong> giving and receiving help, sharing what’s held inside.</li>
+          <li><strong>Interpersonal skill-building:</strong> practicing boundaries, needs, and repair.</li>
+          <li><strong>Existential factors:</strong> facing responsibility, freedom, meaning, and limits together.</li>
+        </ul>
+      </div>
+    </section>
+    <!-- Who it's for -->
+    <section class="page-section-cstm">
+      <h2>Who benefits</h2>
+      <p>Adults seeking deeper, relational change—especially those navigating patterns of anxiety, people-pleasing, conflict avoidance, isolation, attachment wounds, or life transitions. Individual Therapy may continue alongside group when useful.</p>
+      <p><strong>Candidates for group feel:</strong></p>
+      <ul class="list-tight">
+        <li>Ready to give and receive feedback in a supportive way.</li>
+        <li>Willing to explore emotions and relationship patterns in the present moment.</li>
+        <li>Able to commit to confidentiality and regular attendance.</li>
+      </ul>
+    </section>
+    <!-- Structure / Logistics -->
+    <section class="page-section-cstm">
+      <h2>Format & logistics</h2>
+      <div class="card" style="padding:16px">
+        <ul class="list-tight">
+          <li><strong>Type:</strong> Interpersonal process group (closed after formation).</li>
+          <li><strong>Size:</strong> 6–8 members.</li>
+          <li><strong>Facilitator:</strong> Seth Muller, M.A., LPCC.</li>
+          <li><strong>Meeting:</strong> Weekly, 90 minutes (Downtown Littleton office).</li>
+          <li><strong>Commitment:</strong> Initial 12 weeks; option to continue.</li>
+          <li><strong>Fee:</strong> $20–$85 per session (sliding scale available).</li>
+          <li><strong>Attendance:</strong> Consistency matters for cohesion; please plan to attend weekly.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="page-section-cstm">
+<h2>Sliding scale</h2>
+<p>To expand access, I offer a limited number of <strong>sliding-scale</strong> spots between <strong>$20 and $85</strong> per session.</p>
+<div class="calc-container">
+  <!-- Sliding Scale Calculator (drop-in) -->
+  <h4 id="sliding-scale-calculator">Group Therapy Rate Calculator</h4>
+  <p>
+    Enter your <strong>household size</strong> and <strong>annual household income</strong> to see an
+    <em>estimated</em> session rate based on the Federal Poverty Guidelines (FPG).
+  </p>
+  <form class="fee-calc" id="feeCalcForm" novalidate>
+    <div class="fee-calc__row">
+      <label for="householdSize"><strong>Household size</strong></label>
+      <input
+        type="number"
+        id="householdSize"
+        name="householdSize"
+        inputmode="numeric"
+        min="1"
+        step="1"
+        value="1"
+        required
+      />
+    </div>
+    <div class="fee-calc__row">
+      <label for="annualIncome"><strong>Annual household income (USD)</strong></label>
+      <input
+        type="number"
+        id="annualIncome"
+        name="annualIncome"
+        inputmode="decimal"
+        min="0"
+        step="100"
+        placeholder="e.g., 65000"
+        required
+      />
+    </div>
+ <!-- Hardship override -->
+    <div class="fee-calc__row" style="gap:.25rem;">
+      <label style="display:flex; align-items:center; gap:.5rem; font-weight:600;">
+        <input type="checkbox" id="hardshipOverride" />
+        I’m experiencing significant hardship (medical, housing, sudden loss of income, etc.)
+      </label>
+      <small class="muted">
+        If checked, this will show a “contact me” message instead of an estimated session rate.
+      </small>
+    </div>
+    <button type="submit" class="btn btn-primary-custom">Calculate My Group Therapy Rate</button>
+    <div
+      id="feeCalcResult"
+      class="fee-calc__result"
+      role="status"
+      aria-live="polite"
+      style="display:none;"
+    ></div>
+  </form>
+  <br>
+<style>
     .np-bg-green { background-color: #2E4D3E; }
     .np-text-sand { color: #E8E4D8; }
     .content-wrap { padding-top: 96px; padding-bottom: 64px; }
@@ -78,72 +223,153 @@
     @media (min-width: 768px){ .page-hero { background-image: url('images/hero_banner_1024.jpg'); } }
     @media (min-width: 1024px){ .page-hero { background-image: url('images/hero_banner_1440.jpg'); } }
     @media (min-width: 1440px){ .page-hero { background-image: url('images/hero_banner_1920.jpg'); } }
-  </style>
-</head>
-<body>
+    /* Minimal styling — adjust to match your theme */
+  .fee-calc { max-width: 680px; }
+  .fee-calc__row { margin: 0 0 1rem; display: grid; gap: .4rem; }
+  .fee-calc input[type="number"]{
+    padding: .6rem .7rem;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 12px;
+    width: 100%;
+  }
+  .fee-calc input[type="checkbox"]{ transform: translateY(1px); }
+  .fee-calc__result {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    background: #fff;
+  }
+  .fee-calc__result strong { font-size: 1.1rem; }
+  /* Minimal styling — adjust to match your theme */
+  .fee-calc { max-width: 680px; }
+  .fee-calc__row { margin: 0 0 1rem; display: grid; gap: .4rem; }
+  .fee-calc input[type="number"]{
+    padding: .6rem .7rem;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 12px;
+    width: 100%;
+  }
+  .fee-calc input[type="checkbox"]{ transform: translateY(1px); }
+  .fee-calc__result {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    background: #fff;
+  }
+  .fee-calc__result strong { font-size: 1.1rem; }
 
-<div data-include="partials/navbar.html"></div>
 
-<header class="page-hero">
-  <div class="container">
-    <h1>Group Psychotherapy</h1>
-  </div>
-</header>
+</style>
 
-<main class="content-wrap" id="main">
-  <div class="container">
-        <h3>Groups are grounded in <strong>interpersonal neurobiology</strong>, <strong>attachment theory</strong>, and <strong>existential therapy</strong>.</h3>
+<script>
+  // --- Federal Poverty Guidelines (FPG), contiguous U.S. ---
+  // UPDATE THESE NUMBERS EACH YEAR to the new HHS FPG values:
+  // base = household size 1, add = amount to add per additional person.
+  const FPG_2025_CONTIGUOUS = { base: 15560, add: 5480 };
 
-    <!-- Lead -->
-    <section class="page-section-cstm">
-      <p><span class="pill">Now Forming</span></p>
-      <p>Group therapy is a uniquely powerful way to heal in connection. Following Irvin Yalom’s work, our groups focus on the <em>here-and-now</em>—how we relate, protect, withdraw, and reach for others—so that members can practice new ways of being that translate to life outside the room.</p>
-      <p><a class="special btn-primary-custom btn" href="/contact.html#contact-us" aria-label="Inquire about groups">Request a brief consult →</a></p>
-    </section>
+  // Map %FPG bands to your fees
+  function feeFromPctFpg(pct) {
+    if (pct < 200) return 20;
+    if (pct >= 200 && pct < 250) return 35;
+    if (pct >= 250 && pct < 300) return 50;
+    if (pct >= 300 && pct < 400) return 65;
+    return 85;
+  }
 
-    <!-- Therapeutic Factors -->
-    <section class="page-section-cstm">
-      <h2>What makes group work?</h2>
-      <div class="card" style="padding:16px">
-        <ul class="list-tight">
-          <li><strong>Universality:</strong> discovering you are not alone.</li>
-          <li><strong>Instillation of hope:</strong> witnessing others grow encourages your own.</li>
-          <li><strong>Interpersonal learning:</strong> live feedback about impact and intentions.</li>
-          <li><strong>Cohesion & belonging:</strong> a safe “micro-community” for honest risk-taking.</li>
-          <li><strong>Corrective emotional experiences:</strong> new relational outcomes for old templates.</li>
-          <li><strong>Altruism & catharsis:</strong> giving and receiving help, sharing what’s held inside.</li>
-          <li><strong>Development of socializing techniques:</strong> practicing boundaries, needs, and repair.</li>
-          <li><strong>Existential factors:</strong> facing responsibility, freedom, meaning, and limits together.</li>
-        </ul>
+  function formatUSD(n) {
+    return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n);
+  }
+
+  function computeFpgThreshold(householdSize) {
+    const size = Math.max(1, Math.floor(householdSize));
+    return FPG_2025_CONTIGUOUS.base + FPG_2025_CONTIGUIOUS_ADD() * (size - 1);
+  }
+
+  // Small helper so you only change numbers in one place above
+  function FPG_2025_CONTIGUIOUS_ADD() {
+    return FPG_2025_CONTIGUOUS.add;
+  }
+
+  function clamp(n, min, max) {
+    return Math.min(max, Math.max(min, n));
+  }
+
+  document.getElementById("feeCalcForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const sizeEl = document.getElementById("householdSize");
+    const incomeEl = document.getElementById("annualIncome");
+    const hardshipEl = document.getElementById("hardshipOverride");
+    const resultEl = document.getElementById("feeCalcResult");
+
+    const householdSize = Number(sizeEl.value);
+    const annualIncome = Number(incomeEl.value);
+
+    // Basic validation
+    if (!Number.isFinite(householdSize) || householdSize < 1) {
+      resultEl.style.display = "block";
+      resultEl.textContent = "Please enter a valid household size (1 or more).";
+      return;
+    }
+    if (!Number.isFinite(annualIncome) || annualIncome < 0) {
+      resultEl.style.display = "block";
+      resultEl.textContent = "Please enter a valid annual income (0 or more).";
+      return;
+    }
+
+    // Hardship override (shows message instead of a rate)
+    if (hardshipEl.checked) {
+      resultEl.style.display = "block";
+      resultEl.innerHTML = `
+        <strong>Thanks for sharing that.</strong>
+        <div style="margin-top:.5rem;">
+          If you’re experiencing significant hardship, please reach out and we’ll discuss options together.
+        </div>
+        <div style="margin-top:1rem;">
+          <a class="btn btn-primary-custom" href="/contact.html#contact-us">Contact Me</a>
+        </div>
+      `;
+      return;
+    }
+
+    const fpgThreshold =
+      FPG_2025_CONTIGUOUS.base + FPG_2025_CONTIGUOUS.add * (Math.floor(householdSize) - 1);
+
+    // Percent of FPG: income / guideline * 100
+    const pct = (annualIncome / fpgThreshold) * 100;
+    const pctRounded = Math.round(pct);
+
+    const fee = feeFromPctFpg(pct);
+    const band =
+      pct < 200 ? "< 200% FPG" :
+      pct < 250 ? "200–250% FPG" :
+      pct < 300 ? "250–300% FPG" :
+      pct < 400 ? "300–400% FPG" :
+      "> 400% FPG";
+
+    resultEl.style.display = "block";
+    resultEl.innerHTML = `
+      <div>
+        <strong>Estimated group session rate: ${formatUSD(fee)}</strong>
+        <div style="margin-top:.35rem;">
+          Based on: <span class="pill">${band}</span>
+        </div>
+        <div class="muted" style="margin-top:.5rem;">
+          Household size: <strong>${Math.floor(householdSize)}</strong> •
+          Income: <strong>${formatUSD(annualIncome)}</strong> •
+          FPG (2025, contiguous U.S.): <strong>${formatUSD(fpgThreshold)}</strong> •
+          Your estimate: <strong>${clamp(pctRounded, 0, 9999)}% FPG</strong>
+        </div>
       </div>
-    </section>
-
-    <!-- Who it's for -->
-    <section class="page-section-cstm">
-      <h2>Who benefits</h2>
-      <p>Adults seeking deeper, relational change—especially those navigating patterns of anxiety, people-pleasing, conflict avoidance, isolation, attachment wounds, or life transitions. Individual therapy may continue alongside group when useful.</p>
-      <ul class="list-tight">
-        <li>Ready to give and receive feedback in a supportive way.</li>
-        <li>Willing to explore emotions and relationship patterns in the present moment.</li>
-        <li>Able to commit to confidentiality and regular attendance.</li>
-      </ul>
-    </section>
-
-    <!-- Structure / Logistics -->
-    <section class="page-section-cstm">
-      <h2>Format & logistics</h2>
-      <div class="card" style="padding:16px">
-        <ul class="list-tight">
-          <li><strong>Type:</strong> Interpersonal process group (closed after formation).</li>
-          <li><strong>Size:</strong> 6–8 members.</li>
-          <li><strong>Facilitator:</strong> Seth Muller, M.A., LPCC.</li>
-          <li><strong>Meeting:</strong> Weekly, 90 minutes (Lakewood office).</li>
-          <li><strong>Commitment:</strong> Initial 12 weeks; option to continue.</li>
-          <li><strong>Fee:</strong> $20–$85 per session (sliding scale available).</li>
-          <li><strong>Attendance:</strong> Consistency matters for cohesion; please plan to attend weekly.</li>
-        </ul>
-      </div>
-    </section>
+    `;
+  });
+</script>
+</div>
+</section>
 
     <!-- What to expect -->
     <section class="page-section-cstm">
@@ -159,7 +385,7 @@
     <!-- Confidentiality & Safety -->
     <section class="page-section-cstm">
       <h2>Confidentiality & safety</h2>
-      <p>Group members agree to protect one another’s privacy. Safety includes respectful language, avoiding advice-giving unless requested, speaking from your own experience, and checking consent before giving feedback. Crisis care is handled individually—group is not a 24/7 service.</p>
+      <p>Group members agree to protect one another’s privacy. Safety includes <strong>respectful language</strong>, avoiding advice-giving unless requested, speaking from your own experience, and checking consent before giving feedback. <strong>Crisis care is handled individually—group is not a 24/7 service.</strong></p>
     </section>
 
     <!-- Enrollment -->
@@ -204,7 +430,7 @@
         <div><p>Conflict is workable and often healing. We slow down, check impact, repair, and learn new ways of being with differences and needs.</p></div>
       </details>
       <br>
-      <p class="muted">Updated: September 01, 2025</p>
+      <p class="muted">Updated: April 21, 2026</p>
     </section>
 
 
