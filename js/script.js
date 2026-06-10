@@ -99,10 +99,10 @@
     nav.dataset.autoHideInit = '1';
 
     // --- Tunables ---
-    const HIDE_AFTER_IDLE_MS  = 1100;
-    const HIDE_AFTER_LEAVE_MS = 1100;
-    const ACTIVATION_Y        = 48;   // must be at least this far down page
-    const SHOW_UP_DELTA       = 89;   // must scroll up this many px before showing
+    const HIDE_AFTER_IDLE_MS  = 2000;
+    const HIDE_AFTER_LEAVE_MS = 2000;
+    const ACTIVATION_Y        = 0;   // must be at least this far down page
+    const SHOW_UP_DELTA       = 47;   // must scroll up this many px before showing
     const IGNORE_SMALL_DY     = 2;    // ignore micro scroll jitter
 
     let menuOpen    = false; // Bootstrap collapse status
@@ -139,7 +139,7 @@
       if (!initialized) { initialized = true; return; }
       if (Math.abs(dy) <= IGNORE_SMALL_DY) return;
 
-      // 🆕 Special case: near the top, reveal nav when user scrolls UP
+      // Special case: near the top, reveal nav when user scrolls UP
       if (y <= ACTIVATION_Y) {
         upAccumPx = 0; // reset accumulator
         if (dy < 0) {  // scrolling up toward/at the top
